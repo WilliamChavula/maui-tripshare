@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseMaui>true</UseMaui>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
+		<PackageReference Include="xunit" Version="2.4.2" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="coverlet.collector" Version="3.2.0">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="FluentAssertions" Version="6.8.0" />
+		<PackageReference Include="Moq" Version="4.18.3" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="FluentAssertions" />
+		<None Remove="pagemodels\" />
+		<None Remove="services\" />
+		<None Remove="fixtures\" />
+		<None Remove="Moq" />
+		<None Remove="fixtures\trips.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\tripshare\tripshare.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="pagemodels\" />
+	  <Folder Include="services\" />
+	  <Folder Include="fixtures\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="fixtures\trips.json" />
+	</ItemGroup>
+</Project>

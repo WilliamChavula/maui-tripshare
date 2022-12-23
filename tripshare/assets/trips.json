@@ -1,0 +1,30 @@
+﻿[
+  {
+    "id": "9f4fe4b2-7a5b-40c1-aa90-168653782e21",
+    "longitude": -47.6849007,
+    "latitude": -11.8764686,
+    "date": "9/3/2022",
+    "rating": 5,
+    "notes": "Visionary optimal strategy",
+    "image": "http://dummyimage.com/117x100.png/dddddd/000000"
+  },
+  {
+    "id": "f5a487b8-5a7a-4ca9-b484-853ad2c4d945",
+    "longitude": 45.1360148,
+    "latitude": 40.2938995,
+    "date": "8/4/2022",
+    "rating": 1,
+    "notes": "Stand-alone executive customer loyalty",
+    "image": "http://dummyimage.com/167x100.png/5fa2dd/ffffff"
+  },
+  {
+    "id": "0d0078cd-ccd1-440d-acda-a714da2d5625",
+    "longitude": 37.8548295,
+    "latitude": 55.6842625,
+    "date": "3/25/2022",
+    "rating": 4,
+    "notes": "Re-contextualized radical adapter",
+    "image": "http://dummyimage.com/109x100.png/ff4444/ffffff"
+  }
+
+]

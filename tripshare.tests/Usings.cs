@@ -1,5 +1,6 @@
 ﻿global using System;
 global using System.Reflection;
+global using System.Threading.Tasks;
 
 global using FluentAssertions;
 global using Xunit;

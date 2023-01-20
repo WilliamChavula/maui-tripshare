@@ -1,4 +1,6 @@
-﻿namespace tripshare.tests;
+﻿using System.IO;
+
+namespace tripshare.tests;
 
 public class ReadDataFromLocalFileSourceTests
 {

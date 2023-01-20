@@ -53,6 +53,7 @@
 		<None Remove="interfaces\" />
 		<None Remove="assets\" />
 		<None Remove="assets\trips.json" />
+		<None Remove="assets\sample_users.json" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="pagemodels\" />
@@ -63,5 +64,6 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <EmbeddedResource Include="assets\trips.json" />
+	  <EmbeddedResource Include="assets\sample_users.json" />
 	</ItemGroup>
 </Project>

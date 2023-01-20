@@ -1,4 +1,6 @@
-﻿namespace tripshare.services;
+﻿using System.IO;
+
+namespace tripshare.services;
 
 public class FetchFromJsonFile : IFetchDataClient<string>
 {

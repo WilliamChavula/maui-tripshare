@@ -1,13 +1,13 @@
 ﻿namespace tripshare.models;
 
-public class Trip
+public record Trip
 {
-    public Guid Id { get; set; }
-    public string Title { get; set; }
-    public double Latitude { get; set; }
-    public double Longitude { get; set; }
-    public DateOnly Date { get; set; }
-    public int Rating { get; set; }
-    public string Notes { get; set; }
+    public Guid Id { get; init; }
+    public string Title { get; init; }
+    public double Latitude { get; init; }
+    public double Longitude { get; init; }
+    public DateOnly Date { get; init; }
+    public int Rating { get; init; }
+    public string Notes { get; init; }
 }
 

@@ -1,30 +1,227 @@
-﻿[
-  {
-    "id": "9f4fe4b2-7a5b-40c1-aa90-168653782e21",
-    "longitude": -47.6849007,
-    "latitude": -11.8764686,
-    "date": "9/3/2022",
-    "rating": 5,
-    "notes": "Visionary optimal strategy",
-    "image": "http://dummyimage.com/117x100.png/dddddd/000000"
-  },
-  {
-    "id": "f5a487b8-5a7a-4ca9-b484-853ad2c4d945",
-    "longitude": 45.1360148,
-    "latitude": 40.2938995,
-    "date": "8/4/2022",
-    "rating": 1,
-    "notes": "Stand-alone executive customer loyalty",
-    "image": "http://dummyimage.com/167x100.png/5fa2dd/ffffff"
-  },
-  {
-    "id": "0d0078cd-ccd1-440d-acda-a714da2d5625",
-    "longitude": 37.8548295,
-    "latitude": 55.6842625,
-    "date": "3/25/2022",
-    "rating": 4,
-    "notes": "Re-contextualized radical adapter",
-    "image": "http://dummyimage.com/109x100.png/ff4444/ffffff"
-  }
-
+[
+	{
+		"ID": "3ad9e4aa-eb22-43ad-8de9-8929a8d7e29d",
+		"Date": "07/10/2021",
+		"Latitude": 48.2150764,
+		"Longitude": 23.4793844,
+		"Rating": 6,
+		"Notes": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.",
+		"Title": "Enterprise-wide empowering structure"
+	},
+	{
+		"ID": "2eb74e2f-d3f8-4142-8e98-aa57f80df4c7",
+		"Date": "01/11/2020",
+		"Latitude": 50.3768235,
+		"Longitude": 35.3859026,
+		"Rating": 2,
+		"Notes": "Sed ante. Vivamus tortor. Duis mattis egestas metus.",
+		"Title": "Exclusive asynchronous neural-net"
+	},
+	{
+		"ID": "050bfada-28d8-4863-80a9-311975402c4d",
+		"Date": "17/03/2019",
+		"Latitude": 11.4693878,
+		"Longitude": 123.1476046,
+		"Rating": 6,
+		"Notes": "Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.",
+		"Title": "Streamlined system-worthy workforce"
+	},
+	{
+		"ID": "ea77af5b-1b0f-46b0-9d71-43980b24fc73",
+		"Date": "03/11/2018",
+		"Latitude": -25.304882,
+		"Longitude": -49.0555691,
+		"Rating": 9,
+		"Notes": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+		"Title": "Triple-buffered systematic functionalities"
+	},
+	{
+		"ID": "f33af647-88f4-4b68-bc00-6f8a62fa64d3",
+		"Date": "10/01/2021",
+		"Latitude": 38.789257,
+		"Longitude": -27.327988,
+		"Rating": 9,
+		"Notes": "Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+		"Title": "Open-architected systemic matrices"
+	},
+	{
+		"ID": "f8074278-5dc5-48c4-ba28-fa1d517bd3eb",
+		"Date": "06/12/2021",
+		"Latitude": 37.895325,
+		"Longitude": 113.176433,
+		"Rating": 8,
+		"Notes": "Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",
+		"Title": "Grass-roots radical model"
+	},
+	{
+		"ID": "6b337cae-7c5a-4bca-a17f-db4299b6b1ee",
+		"Date": "05/12/2020",
+		"Latitude": 5.4653142,
+		"Longitude": 95.2579968,
+		"Rating": 9,
+		"Notes": "Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis.",
+		"Title": "Automated system-worthy open system"
+	},
+	{
+		"ID": "152685da-eefc-44a3-93cf-c191032f9418",
+		"Date": "17/04/2021",
+		"Latitude": 40.5484721,
+		"Longitude": 44.9618132,
+		"Rating": 10,
+		"Notes": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.",
+		"Title": "Intuitive contextually-based methodology"
+	},
+	{
+		"ID": "4d4d457e-011c-4557-a650-79f46e197e93",
+		"Date": "08/09/2020",
+		"Latitude": -29.9026691,
+		"Longitude": -71.2519374,
+		"Rating": 10,
+		"Notes": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.",
+		"Title": "Multi-layered holistic info-mediaries"
+	},
+	{
+		"ID": "e2807168-a0fd-4649-97f7-538effcbd5f3",
+		"Date": "13/12/2021",
+		"Latitude": 12.5854531,
+		"Longitude": 107.8880075,
+		"Rating": 4,
+		"Notes": "Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.",
+		"Title": "Synergistic even-keeled matrices"
+	},
+	{
+		"ID": "ec846e46-d0c6-496f-88d9-7218f7bb6acd",
+		"Date": "13/03/2020",
+		"Latitude": 12.3714277,
+		"Longitude": -1.5196603,
+		"Rating": 5,
+		"Notes": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.",
+		"Title": "Versatile value-added benchmark"
+	},
+	{
+		"ID": "d09d8314-96bb-4c83-a618-86c253e58ed4",
+		"Date": "07/09/2022",
+		"Latitude": 43.6085373,
+		"Longitude": 1.4525313,
+		"Rating": 4,
+		"Notes": "In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.",
+		"Title": "Enterprise-wide bifurcated emulation"
+	},
+	{
+		"ID": "e4800ed5-de2b-46e2-a635-7750342ea590",
+		"Date": "16/03/2022",
+		"Latitude": 28.357764,
+		"Longitude": 121.143873,
+		"Rating": 4,
+		"Notes": "Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus.",
+		"Title": "Multi-tiered discrete access"
+	},
+	{
+		"ID": "dfa1e89b-692b-49e3-baee-1f88c396cb8c",
+		"Date": "03/06/2020",
+		"Latitude": 39.873363,
+		"Longitude": -4.0414005,
+		"Rating": 1,
+		"Notes": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.",
+		"Title": "Balanced methodical infrastructure"
+	},
+	{
+		"ID": "eebfef27-bbdb-41ab-a5eb-3ab6ca40a66d",
+		"Date": "11/05/2022",
+		"Latitude": -7.3090831,
+		"Longitude": 108.8511448,
+		"Rating": 10,
+		"Notes": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+		"Title": "Re-engineered didactic forecast"
+	},
+	{
+		"ID": "f43099a0-fbbc-493e-9b99-07591db26331",
+		"Date": "03/09/2022",
+		"Latitude": 52.3554418,
+		"Longitude": 46.5615075,
+		"Rating": 6,
+		"Notes": "Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",
+		"Title": "Reverse-engineered intermediate middleware"
+	},
+	{
+		"ID": "244f575b-5ebf-41aa-849b-7b00a3ee6efb",
+		"Date": "12/08/2020",
+		"Latitude": 30.940195,
+		"Longitude": 118.75868,
+		"Rating": 6,
+		"Notes": "In eleifend quam a odio. In hac habitasse platea dictumst.",
+		"Title": "Virtual discrete knowledge base"
+	},
+	{
+		"ID": "84a7b8f6-7e44-449d-a180-eb624949c699",
+		"Date": "30/01/2021",
+		"Latitude": -40.7632504,
+		"Longitude": -71.638725,
+		"Rating": 8,
+		"Notes": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",
+		"Title": "Down-sized human-resource open system"
+	},
+	{
+		"ID": "2782f090-b49e-4f95-9688-668ae225f88c",
+		"Date": "07/06/2019",
+		"Latitude": 60.6815788,
+		"Longitude": 17.1350993,
+		"Rating": 2,
+		"Notes": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
+		"Title": "Extended cohesive challenge"
+	},
+	{
+		"ID": "035da5bc-b3f4-4a53-a19c-5d624a4c9516",
+		"Date": "15/08/2021",
+		"Latitude": 29.5530941,
+		"Longitude": 118.9353968,
+		"Rating": 9,
+		"Notes": "Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.",
+		"Title": "Extended system-worthy firmware"
+	},
+	{
+		"ID": "8a33c6cd-4294-4703-b839-476d13baa189",
+		"Date": "09/11/2020",
+		"Latitude": 50.8885079,
+		"Longitude": 19.0438326,
+		"Rating": 4,
+		"Notes": "Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
+		"Title": "Horizontal cohesive time-frame"
+	},
+	{
+		"ID": "4eb933a8-658c-4981-b3d1-d5a606fe0ef8",
+		"Date": "19/08/2020",
+		"Latitude": -21.4261129,
+		"Longitude": -45.9481612,
+		"Rating": 10,
+		"Notes": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
+		"Title": "Optimized fault-tolerant moderator"
+	},
+	{
+		"ID": "0d4ce391-2a17-4da7-81b7-5ecc71e74c7d",
+		"Date": "09/04/2021",
+		"Latitude": 39.7665139,
+		"Longitude": -89.6100521,
+		"Rating": 8,
+		"Notes": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
+		"Title": "Profound next generation capacity"
+	},
+	{
+		"ID": "96b95cfa-87f3-4070-93ae-c27452929325",
+		"Date": "29/05/2021",
+		"Latitude": 21.441808,
+		"Longitude": 110.778411,
+		"Rating": 9,
+		"Notes": "Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.",
+		"Title": "Distributed value-added challenge"
+	},
+	{
+		"ID": "a460779c-f191-4483-8250-8ded41557f33",
+		"Date": "07/08/2022",
+		"Latitude": -34.5154006,
+		"Longitude": -58.5284973,
+		"Rating": 1,
+		"Notes": "Morbi quis tortor id nulla ultrices aliquet.",
+		"Title": "Ergonomic disintermediate knowledge user"
+	}
 ]

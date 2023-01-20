@@ -7,7 +7,7 @@ public class HomePageModel : FreshBasePageModel
     public ObservableCollection<Trip> Trips { get; set; }
     public Command NavigateToAddTripScreenCommand =>
         // ReSharper disable once AsyncVoidLambda
-        new Command(async () =>
+        new(async () =>
         {
             await CoreMethods.PushPageModel<AddTripPageModel>();
         });

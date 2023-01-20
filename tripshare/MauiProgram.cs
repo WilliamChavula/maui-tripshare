@@ -1,5 +1,8 @@
-﻿using Microsoft.Maui.Controls.Hosting;
+﻿using FreshMvvm.Maui.Extensions;
+using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
+
+using tripshare.extensions;
 
 namespace tripshare;
 
@@ -21,13 +24,24 @@ public static class MauiProgram
                 fonts.AddFont("Oxygen-Regular.ttf", "OxygenRegular");
                 fonts.AddFont("fa-regular-400.ttf", "FaRegular");
                 fonts.AddFont("fa-solid-900.ttf", "FaSolid");
-            });
+            }).ConfigureTripShareServices();
+
+
+        builder.Services.AddTransient<HomePage, HomePage>();
+        builder.Services.AddTransient<HomePageModel, HomePageModel>();
+
+        builder.Services.AddTransient<AddTripPage, AddTripPage>();
+        builder.Services.AddTransient<AddTripPageModel, AddTripPageModel>();
 
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
 
-        return builder.Build();
+        MauiApp mauiApp = builder.Build();
+
+        mauiApp.UseFreshMvvm();
+
+        return mauiApp;
     }
 }
 

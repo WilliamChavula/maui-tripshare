@@ -23,14 +23,14 @@ public class ReadDataFromLocalFileSource : IReadData
     }
 }
 
-internal class CustomDateTimeConverter : JsonConverter<DateTime>
+internal class CustomDateTimeConverter : JsonConverter<DateOnly>
 {
-    public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        return DateTime.ParseExact(reader.GetString()!, "dd/mm/yyyy", null);
+        return DateOnly.ParseExact(reader.GetString()!, "dd/mm/yyyy", null);
     }
 
-    public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, DateOnly value, JsonSerializerOptions options)
     {
         throw new NotImplementedException();
     }

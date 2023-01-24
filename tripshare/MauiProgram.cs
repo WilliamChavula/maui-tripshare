@@ -27,20 +27,14 @@ public static class MauiProgram
             }).ConfigureTripShareServices();
 
 
-        builder.Services.AddTransient<HomePage, HomePage>();
-        builder.Services.AddTransient<HomePageModel, HomePageModel>();
+        builder.Services.AddTransient<HomePage>();
+        builder.Services.AddTransient<HomePageModel>();
 
-        builder.Services.AddTransient<AddTripPage, AddTripPage>();
-        builder.Services.AddTransient<AddTripPageModel, AddTripPageModel>();
+        builder.Services.AddTransient<AddTripPage>();
+        builder.Services.AddTransient<AddTripPageModel>();
 
-#if DEBUG
-        builder.Logging.AddDebug();
-#endif
-
-        MauiApp mauiApp = builder.Build();
-
+        var mauiApp = builder.Build();
         mauiApp.UseFreshMvvm();
-
         return mauiApp;
     }
 }

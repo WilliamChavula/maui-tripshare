@@ -1,12 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="tripshare.pages.HomePage"
-             Title="HomePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:freshMvvm="clr-namespace:FreshMvvm.Maui;assembly=FreshMvvm.Maui"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="tripshare.HomePage"
+    xmlns:viewmodels="clr-namespace:tripshare"
+    x:DataType="viewmodels:HomePageModel"
+    ios:Page.UseSafeArea="True"
+    Title="Trips"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="{AppThemeBinding Dark={StaticResource PageBackgroundColorDark}, Light={StaticResource PageBackgroundColorLight}}">
+    <Grid RowDefinitions="Auto, Auto, *" Padding="{StaticResource p-xlarge}">
+         <!--GREETING AND HEADER-->
+            <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto, Auto" Grid.Row="0">
+                <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Label Style="{StaticResource HeadingLabel2}" Text="Good morning, Thomas!" HorizontalOptions="StartAndExpand" />
+                    <Label Style="{StaticResource FontIconBase}" Text="{StaticResource AddLocationIcon}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToAddTripScreenCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Label Style="{StaticResource HeadingLabel}" Text="Where do you want to go?" Grid.Row="1" />
+
+                <!--SEARCH BOX-->
+                <Border Grid.Row="2" Margin="0,12" BackgroundColor="{AppThemeBinding
+                        Light={StaticResource InputBackgroundColorLight},
+                        Dark={StaticResource InputBackgroundColorDark}}" Padding="{OnPlatform Android='14, 6', iOS='16'}" Stroke="{AppThemeBinding
+                        Light={StaticResource InputBorderColorLight},
+                        Dark={StaticResource DividerColorDark}}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16" />
+                    </Border.StrokeShape>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="12">
+                        <Label Style="{StaticResource FontIconBase}" Text="{StaticResource SearchIcon}" HorizontalOptions="Start" VerticalTextAlignment="Center" />
+
+                        <!--<Entry HorizontalOptions="End" Placeholder="Search destination..." PlaceholderColor="{AppThemeBinding
+                            Light={StaticResource PlaceholderTextColorLight},
+                            Dark={StaticResource PlaceholderTextColorDark}}">
+                            <Entry.Effects>
+                                <effects:NoUnderlineEntryEffect />
+                            </Entry.Effects>
+
+                        </Entry>-->
+                    </StackLayout>
+                </Border>
+            </Grid>
+
+    </Grid>
 </ContentPage>

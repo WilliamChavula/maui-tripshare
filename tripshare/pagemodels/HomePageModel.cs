@@ -1,4 +1,4 @@
-﻿namespace tripshare.pagemodels;
+﻿namespace tripshare;
 
 public class HomePageModel : FreshBasePageModel
 {

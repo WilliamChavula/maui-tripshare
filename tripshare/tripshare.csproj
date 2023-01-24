@@ -54,6 +54,8 @@
 		<None Remove="assets\" />
 		<None Remove="assets\trips.json" />
 		<None Remove="assets\sample_users.json" />
+		<None Remove="extensions\" />
+		<None Remove="pages\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="pagemodels\" />
@@ -61,9 +63,19 @@
 	  <Folder Include="models\" />
 	  <Folder Include="interfaces\" />
 	  <Folder Include="assets\" />
+	  <Folder Include="extensions\" />
+	  <Folder Include="pages\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <EmbeddedResource Include="assets\trips.json" />
 	  <EmbeddedResource Include="assets\sample_users.json" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="pages\HomePage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="pages\AddTripPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>

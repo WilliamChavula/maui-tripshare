@@ -18,4 +18,6 @@ global using FreshMvvm.Maui;
 global using tripshare.models;
 global using tripshare.interfaces;
 global using tripshare.pagemodels;
+global using tripshare.pages;
+global using tripshare.services;
 

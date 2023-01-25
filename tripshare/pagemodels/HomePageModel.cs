@@ -1,10 +1,12 @@
-﻿namespace tripshare;
+﻿// ReSharper disable once CheckNamespace
+namespace tripshare;
 
 public class HomePageModel : FreshBasePageModel
 {
-    readonly IReadData _readData;
+    private readonly IReadData _readData;
 
-    public ObservableCollection<Trip> Trips { get; set; }
+    public ObservableCollection<Trip> Trips { get; private set; }
+    public ObservableCollection<Accommodation> Accommodations { get; private set; }
     public Command NavigateToAddTripScreenCommand =>
         // ReSharper disable once AsyncVoidLambda
         new(async () =>
@@ -16,6 +18,34 @@ public class HomePageModel : FreshBasePageModel
     {
         _readData = readData;
         LoadTrips();
+        LoadAccommodations();
+    }
+
+    private void LoadAccommodations()
+    {
+        Accommodations = new ObservableCollection<Accommodation>
+        {
+            new Accommodation
+            {
+                AccommodationType = AccommodationType.Hotel,
+                Image = "hotel.png"
+            },
+            new Accommodation
+            {
+                AccommodationType = AccommodationType.Apartment,
+                Image = "apartment.png"
+            },
+            new Accommodation
+            {
+                AccommodationType = AccommodationType.Villa,
+                Image = "villa.png"
+            },
+            new Accommodation
+            {
+                AccommodationType = AccommodationType.Camping,
+                Image = "glamping.png"
+            },
+        };
     }
 
     private async void LoadTrips()

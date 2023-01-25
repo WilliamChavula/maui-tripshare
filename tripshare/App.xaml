@@ -122,7 +122,7 @@
                         Light={StaticResource IconColorLight},
                         Dark={StaticResource IconColorDark}}" />
             
-           <Setter Property="FontFamily" Value="fa-solid" />
+           <Setter Property="FontFamily" Value="FaSolid" />
            <Setter Property="FontSize" Value="24" />
         </Style>
     </Application.Resources>

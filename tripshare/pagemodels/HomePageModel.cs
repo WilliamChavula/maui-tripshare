@@ -1,5 +1,4 @@
-﻿// ReSharper disable once CheckNamespace
-namespace tripshare;
+﻿namespace tripshare.pagemodels;
 
 public class HomePageModel : FreshBasePageModel
 {

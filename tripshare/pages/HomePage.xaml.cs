@@ -1,4 +1,4 @@
-﻿namespace tripshare;
+﻿namespace tripshare.pages;
 
 public partial class HomePage : ContentPage
 {

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:freshMvvm="clr-namespace:FreshMvvm.Maui;assembly=FreshMvvm.Maui"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="tripshare.HomePage"
     xmlns:viewmodels="clr-namespace:tripshare"
+    xmlns:model="clr-namespace:tripshare.models"
     x:DataType="viewmodels:HomePageModel"
     ios:Page.UseSafeArea="True"
     Title="Trips"
@@ -34,7 +34,15 @@
                         <RoundRectangle CornerRadius="16" />
                     </Border.StrokeShape>
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="12">
-                        <Label Style="{StaticResource FontIconBase}" Text="{StaticResource SearchIcon}" HorizontalOptions="Start" VerticalTextAlignment="Center" />
+                        <Image Margin="8">
+                            <Image.Source>
+                                <FontImageSource
+                                    Glyph="{StaticResource SearchIcon}" 
+                                    FontFamily="FaSolid" Size="18" Color="{AppThemeBinding
+                                    Light={StaticResource IconColorLight},
+                                    Dark={StaticResource IconColorDark}}" />
+                            </Image.Source>
+                        </Image>
 
                         <!--<Entry HorizontalOptions="End" Placeholder="Search destination..." PlaceholderColor="{AppThemeBinding
                             Light={StaticResource PlaceholderTextColorLight},
@@ -47,6 +55,38 @@
                     </StackLayout>
                 </Border>
             </Grid>
+         <!--ACCOMMODATION TYPES-->
+         <CollectionView
+             ItemsSource="{Binding Accommodations}"
+             Grid.Row="1"
+             Margin="0, 16"
+             HeightRequest="100"
+             HorizontalOptions="StartAndExpand" HorizontalScrollBarVisibility="Never">
+             <CollectionView.ItemsLayout>
+                 <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20" />
 
+             </CollectionView.ItemsLayout>
+             <CollectionView.ItemTemplate>
+                 <DataTemplate x:DataType="{x:Type model:Accommodation}">
+                     <StackLayout HorizontalOptions="StartAndExpand">
+                         <Image
+                             Aspect="AspectFill"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             Source="{Binding Image}">
+                             <Image.Clip>
+                                 <EllipseGeometry Center="25,25" RadiusX="25" RadiusY="25" />
+                             </Image.Clip>
+                         </Image>
+                         <Label  
+                             Style="{StaticResource CaptionLabel}" 
+                             Text="{Binding AccommodationType}" 
+                             HorizontalTextAlignment="Center" Margin="0, 8, 0, 0"  />
+                     </StackLayout>
+                 </DataTemplate>
+             </CollectionView.ItemTemplate>
+         </CollectionView>
     </Grid>
 </ContentPage>

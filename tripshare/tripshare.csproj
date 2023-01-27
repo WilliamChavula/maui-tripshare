@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net7.0;net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst;net7.0</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
@@ -27,6 +27,13 @@
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
 		<CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<WarningLevel>4</WarningLevel>
+		<LangVersion>latestmajor</LangVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<LangVersion>latestmajor</LangVersion>
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
@@ -56,26 +63,33 @@
 		<None Remove="assets\sample_users.json" />
 		<None Remove="extensions\" />
 		<None Remove="pages\" />
+		<None Remove="controls\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="pagemodels\" />
-	  <Folder Include="services\" />
-	  <Folder Include="models\" />
-	  <Folder Include="interfaces\" />
-	  <Folder Include="assets\" />
-	  <Folder Include="extensions\" />
-	  <Folder Include="pages\" />
+		<Folder Include="pagemodels\" />
+		<Folder Include="services\" />
+		<Folder Include="models\" />
+		<Folder Include="interfaces\" />
+		<Folder Include="assets\" />
+		<Folder Include="extensions\" />
+		<Folder Include="pages\" />
+		<Folder Include="controls\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <EmbeddedResource Include="assets\trips.json" />
-	  <EmbeddedResource Include="assets\sample_users.json" />
+		<EmbeddedResource Include="assets\trips.json" />
+		<EmbeddedResource Include="assets\sample_users.json" />
 	</ItemGroup>
 	<ItemGroup>
-	  <MauiXaml Update="pages\HomePage.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="pages\AddTripPage.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
+		<MauiXaml Update="pages\HomePage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="pages\AddTripPage.xaml">
+			<SubType>
+			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="controls\VacationControl.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
 	</ItemGroup>
 </Project>

@@ -4,8 +4,9 @@
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="tripshare.pages.HomePage"
-    xmlns:viewmodels="clr-namespace:tripshare.pagemodels"
+    xmlns:controls="clr-namespace:tripshare.controls"
     xmlns:model="clr-namespace:tripshare.models"
+    xmlns:viewmodels="clr-namespace:tripshare.pagemodels"
     x:DataType="viewmodels:HomePageModel"
     ios:Page.UseSafeArea="True"
     Title="Trips"
@@ -68,23 +69,7 @@
              </CollectionView.ItemsLayout>
              <CollectionView.ItemTemplate>
                  <DataTemplate x:DataType="{x:Type model:Accommodation}">
-                     <StackLayout HorizontalOptions="StartAndExpand">
-                         <Image
-                             Aspect="AspectFill"
-                             HorizontalOptions="Center"
-                             VerticalOptions="Center"
-                             WidthRequest="50"
-                             HeightRequest="50"
-                             Source="{Binding Image}">
-                             <Image.Clip>
-                                 <EllipseGeometry Center="25,25" RadiusX="25" RadiusY="25" />
-                             </Image.Clip>
-                         </Image>
-                         <Label  
-                             Style="{StaticResource CaptionLabel}" 
-                             Text="{Binding AccommodationType}" 
-                             HorizontalTextAlignment="Center" Margin="0, 8, 0, 0"  />
-                     </StackLayout>
+                     <controls:VacationControl VacationImageAvatar="{Binding Image}" VacationTypeName="{Binding AccommodationType}" />
                  </DataTemplate>
              </CollectionView.ItemTemplate>
          </CollectionView>

@@ -3,6 +3,7 @@
 public class HomePageModel : FreshBasePageModel
 {
     private readonly IReadData _readData;
+    private readonly IGetAccommodations _getAccommodations;
 
     public ObservableCollection<Trip> Trips { get; private set; }
     public ObservableCollection<Accommodation> Accommodations { get; private set; }
@@ -13,38 +14,17 @@ public class HomePageModel : FreshBasePageModel
             await CoreMethods.PushPageModel<AddTripPageModel>();
         });
 
-    public HomePageModel(IReadData readData)
+    public HomePageModel(IReadData readData, IGetAccommodations getAccommodations)
     {
+        _getAccommodations = getAccommodations;
         _readData = readData;
         LoadTrips();
         LoadAccommodations();
     }
 
-    private void LoadAccommodations()
+    private async void LoadAccommodations()
     {
-        Accommodations = new ObservableCollection<Accommodation>
-        {
-            new Accommodation
-            {
-                AccommodationType = AccommodationType.Hotel,
-                Image = "hotel.png"
-            },
-            new Accommodation
-            {
-                AccommodationType = AccommodationType.Apartment,
-                Image = "apartment.png"
-            },
-            new Accommodation
-            {
-                AccommodationType = AccommodationType.Villa,
-                Image = "villa.png"
-            },
-            new Accommodation
-            {
-                AccommodationType = AccommodationType.Camping,
-                Image = "glamping.png"
-            },
-        };
+        Accommodations = await _getAccommodations.LoadAccommodationsAsync();
     }
 
     private async void LoadTrips()

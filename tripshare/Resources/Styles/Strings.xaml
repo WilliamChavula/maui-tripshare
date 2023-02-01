@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--ICONS-->
+    <x:String x:Key="RatingIcon">&#xf005;</x:String>
+    <x:String x:Key="LocationIcon">&#xf3c5;</x:String>
+    <x:String x:Key="SearchIcon">&#xf002;</x:String>
+    <x:String x:Key="NotificationIcon">&#xf0f3;</x:String>
+    <x:String x:Key="WifiIcon">&#xf1eb;</x:String>
+    <x:String x:Key="UtensilsIcon">&#xf2e7;</x:String>
+    <x:String x:Key="SwimmingIcon">&#xf5c4;</x:String>
+    <x:String x:Key="ConferenceIcon">&#xe533;</x:String>
+    <x:String x:Key="AddLocationIcon">&#x2b;</x:String>
+
+    <!--LITERALS-->
+    <x:String x:Key="Greeting">Good morning, Thomas!</x:String>
+    <x:String x:Key="HeroText">Where do you want to go?</x:String>
+</ResourceDictionary>
+

@@ -4,9 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
+    <Color x:Key="PageBackgroundColorLight">#FFFFFF</Color>
+    <Color x:Key="PageBackgroundColorDark">#20233B</Color>
+    <Color x:Key="BodyFontColorLight">#9c9dac</Color>
+    <Color x:Key="BodyFontColorDark">#a4a1ab</Color>
+    <Color x:Key="AccentColorLight">#2c32b3</Color>
+    <Color x:Key="AccentColorDark">#224aaf</Color>
+    <Color x:Key="HeadingFontColorLight">#32343f</Color>
+    <Color x:Key="HeadingFontColorDark">#F1F1FC</Color>
+    <Color x:Key="FavoriteIconColorLight">#FAC231</Color>
+    <Color x:Key="FavoriteIconColorDark">#FAC231</Color>
+    <Color x:Key="InputBackgroundColorLight">#F9F9F9</Color>
+    <Color x:Key="InputBackgroundColorDark">#2C2E4B</Color>
+    <Color x:Key="InputBorderColorLight">#fafafc</Color>
+    <Color x:Key="DividerColorLight">#EAEAEC</Color>
+    <Color x:Key="DividerColorDark">#646886</Color>
+    <Color x:Key="PlaceholderTextColorLight">#D2D2D5</Color>
+    <Color x:Key="PlaceholderTextColorDark">#7C8199</Color>
+    <Color x:Key="IconColorLight">#595B68</Color>
+    <Color x:Key="IconColorDark">#C5C9DF</Color>
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Gray100">#E1E1E1</Color>
@@ -17,9 +33,9 @@
     <Color x:Key="Gray600">#404040</Color>
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
-    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
+    <!--<SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
-    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
+    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>-->
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
     <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
     <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>

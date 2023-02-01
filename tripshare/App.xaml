@@ -4,50 +4,13 @@
              xmlns:local="clr-namespace:tripshare"
              x:Class="tripshare.App">
     <Application.Resources>
-        <!--COLORS-->
-        <Color x:Key="PageBackgroundColorLight">#FFFFFF</Color>
-        <Color x:Key="PageBackgroundColorDark">#20233B</Color>
-        <Color x:Key="BodyFontColorLight">#9c9dac</Color>
-        <Color x:Key="BodyFontColorDark">#a4a1ab</Color>
-        <Color x:Key="AccentColorLight">#2c32b3</Color>
-        <Color x:Key="AccentColorDark">#224aaf</Color>
-        <Color x:Key="HeadingFontColorLight">#32343f</Color>
-        <Color x:Key="HeadingFontColorDark">#F1F1FC</Color>
-        <Color x:Key="FavoriteIconColorLight">#FAC231</Color>
-        <Color x:Key="FavoriteIconColorDark">#FAC231</Color>
-        <Color x:Key="InputBackgroundColorLight">#F9F9F9</Color>
-        <Color x:Key="InputBackgroundColorDark">#2C2E4B</Color>
-        <Color x:Key="InputBorderColorLight">#fafafc</Color>
-        <Color x:Key="DividerColorLight">#EAEAEC</Color>
-        <Color x:Key="DividerColorDark">#646886</Color>
-        <Color x:Key="PlaceholderTextColorLight">#D2D2D5</Color>
-        <Color x:Key="PlaceholderTextColorDark">#7C8199</Color>
-        <Color x:Key="IconColorLight">#595B68</Color>
-        <Color x:Key="IconColorDark">#C5C9DF</Color>
-
-        <!--FONT SIZES-->
-        <x:Double x:Key="HeadingFontSize">28</x:Double>
-        <x:Double x:Key="HeadingFontSize2">20</x:Double>
-        <x:Double x:Key="HeadingFontSize3">16</x:Double>
-        <x:Double x:Key="BodyFont">14</x:Double>
-        <x:Double x:Key="BodyFont2">14</x:Double>
-        <x:Double x:Key="ButtonTextFontSize">14</x:Double>
-        <x:Double x:Key="TextInputFontSize">16</x:Double>
-
-        <!--DIMENSIONS-->
-        <x:Double x:Key="p-xlarge">24</x:Double>
-
-        <!--ICONS-->
-        <x:String x:Key="RatingIcon">&#xf005;</x:String>
-        <x:String x:Key="LocationIcon">&#xf3c5;</x:String>
-        <x:String x:Key="SearchIcon">&#xf002;</x:String>
-        <x:String x:Key="NotificationIcon">&#xf0f3;</x:String>
-        <x:String x:Key="WifiIcon">&#xf1eb;</x:String>
-        <x:String x:Key="UtensilsIcon">&#xf2e7;</x:String>
-        <x:String x:Key="SwimmingIcon">&#xf5c4;</x:String>
-        <x:String x:Key="ConferenceIcon">&#xe533;</x:String>
-        <x:String x:Key="AddLocationIcon">&#x2b;</x:String> 
-
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Dimensions.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Strings.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
         <!--BASE LABEL STYLES-->
         <Style x:Key="BaseLabel" TargetType="Label">
             <Setter Property="FontFamily" Value="OxygenRegular" />

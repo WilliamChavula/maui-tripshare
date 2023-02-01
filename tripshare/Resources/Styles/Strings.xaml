@@ -18,5 +18,11 @@
     <!--LITERALS-->
     <x:String x:Key="Greeting">Good morning, Thomas!</x:String>
     <x:String x:Key="HeroText">Where do you want to go?</x:String>
+    <x:String x:Key="Discover">Discover</x:String>
+    <x:String x:Key="SubHeading">Feeling Adventurous</x:String>
+    <x:String x:Key="SeeAll">See all</x:String>
+    <x:String x:Key="Overview">Overview</x:String>
+    <x:String x:Key="Reviews">Reviews</x:String>
+    <x:String x:Key="BookNowButtonText">Book now</x:String>
 </ResourceDictionary>
 

@@ -91,5 +91,8 @@
 		<MauiXaml Update="controls\VacationControl.xaml">
 		  <SubType></SubType>
 		</MauiXaml>
+		<MauiXaml Update="Resources\Styles\Strings.xaml">
+		  <SubType></SubType>
+		</MauiXaml>
 	</ItemGroup>
 </Project>

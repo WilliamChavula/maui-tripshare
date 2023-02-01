@@ -16,14 +16,14 @@
          <!--GREETING AND HEADER-->
             <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto, Auto" Grid.Row="0">
                 <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Label Style="{StaticResource HeadingLabel2}" Text="Good morning, Thomas!" HorizontalOptions="StartAndExpand" />
+                    <Label Style="{StaticResource HeadingLabel2}" Text="{StaticResource Greeting}" HorizontalOptions="StartAndExpand" />
                     <Label Style="{StaticResource FontIconBase}" Text="{StaticResource AddLocationIcon}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding NavigateToAddTripScreenCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
-                <Label Style="{StaticResource HeadingLabel}" Text="Where do you want to go?" Grid.Row="1" />
+                <Label Style="{StaticResource HeadingLabel}" Text="{StaticResource HeroText}" Grid.Row="1" />
 
                 <!--SEARCH BOX-->
                 <Border Grid.Row="2" Margin="0,12" BackgroundColor="{AppThemeBinding

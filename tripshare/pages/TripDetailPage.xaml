@@ -29,7 +29,10 @@
                         Margin="16"
                         StrokeShape="RoundRectangle 18"
                         BackgroundColor="#E9ECF3"
-                        Opacity="0.6">
+                        Opacity="0.8">
+                    <Border.Shadow>
+                        <Shadow Offset="0,4" Radius="4" Brush="#636363" Opacity="0.2" />
+                    </Border.Shadow>
                     <ImageButton Padding="4" Command="{Binding NavigateToHomePageCommand}">
                         <ImageButton.Source>
                             <FontImageSource

@@ -1,4 +1,7 @@
-﻿namespace tripshare.extensions;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui.Hosting;
+
+namespace tripshare.extensions;
 
 public static class TripShareServiceExtentions
 {

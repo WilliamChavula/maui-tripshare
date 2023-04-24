@@ -47,9 +47,15 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="Fody" Version="6.7.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="FreshMvvm.Maui" Version="0.0.4" />
+		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
 		<PackageReference Include="System.Text.Json" Version="7.0.1" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Remove="FreshMvvm.Maui" />
@@ -64,20 +70,21 @@
 		<None Remove="extensions\" />
 		<None Remove="pages\" />
 		<None Remove="controls\" />
+		<None Remove="triggers\" />
+		<None Remove="Resources\Fonts\MaterialIconsOutlined-Regular.otf" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="pagemodels\" />
-		<Folder Include="services\" />
-		<Folder Include="models\" />
 		<Folder Include="interfaces\" />
 		<Folder Include="assets\" />
 		<Folder Include="extensions\" />
-		<Folder Include="pages\" />
-		<Folder Include="controls\" />
+		<Folder Include="triggers\" />
 	</ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Include="assets\trips.json" />
 		<EmbeddedResource Include="assets\sample_users.json" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Remove="Resources\Styles\MaterialDesignIcons.xaml" />
 	</ItemGroup>
 	<ItemGroup>
 		<MauiXaml Update="pages\HomePage.xaml">
@@ -94,5 +101,11 @@
 		<MauiXaml Update="Resources\Styles\Strings.xaml">
 		  <SubType></SubType>
 		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Styles\MaterialDesignIcons.xaml">
+	    <SubType>Designer</SubType>
+	  </BundleResource>
+	  <BundleResource Include="Resources\Fonts\MaterialIconsOutlined-Regular.otf" />
 	</ItemGroup>
 </Project>

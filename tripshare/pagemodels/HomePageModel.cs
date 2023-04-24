@@ -6,6 +6,7 @@ public class HomePageModel : FreshBasePageModel
 {
     private readonly IReadData _readData;
     private readonly IGetAccommodations _getAccommodations;
+    private readonly IDestinationService _destinationService;
 
     public ObservableCollection<Trip> Trips { get; private set; }
     public ObservableCollection<Accommodation> Accommodations { get; private set; }
@@ -23,10 +24,11 @@ public class HomePageModel : FreshBasePageModel
         await CoreMethods.PushPageModel<TripDetailPageModel>(destination);
     });
 
-    public HomePageModel(IReadData readData, IGetAccommodations getAccommodations)
+    public HomePageModel(IReadData readData, IGetAccommodations getAccommodations, IDestinationService destinationService)
     {
         _getAccommodations = getAccommodations;
         _readData = readData;
+        _destinationService = destinationService;
     }
 
     public override void Init(object initData)
@@ -59,7 +61,8 @@ public class HomePageModel : FreshBasePageModel
 
     private async void LoadDestinations()
     {
-        Destinations = await DestinationService.LoadDestinationsAsync();
+        var destinations = await _destinationService.LoadDestinationsAsync();
+        Destinations = new ObservableCollection<Destination>(destinations);
     }
 
     private async void LoadAccommodations()

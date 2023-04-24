@@ -2,11 +2,11 @@ using tripshare.helpers;
 
 namespace tripshare.services;
 
-public static class DestinationService
+public class DestinationService : IDestinationService
 {
-    public static Task<ObservableCollection<Destination>> LoadDestinationsAsync()
+    public Task<List<Destination>> LoadDestinationsAsync()
     {
-        var destinations = new ObservableCollection<Destination>()
+        var destinations = new List<Destination>()
         {
             new()
             {

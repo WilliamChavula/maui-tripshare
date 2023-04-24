@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tripshare.controls.DestinationCardControl"
+             x:Name="DestinationCard">
+    <Border
+        BindingContext="{x:Reference DestinationCard}"
+        BackgroundColor="{AppThemeBinding
+                                Light={StaticResource InputBackgroundColorLight},
+                                Dark={StaticResource InputBackgroundColorDark}}"
+        WidthRequest="180"
+        HeightRequest="300"
+        StrokeShape="RoundRectangle 16"
+        VerticalOptions="Start">
+        <Grid RowDefinitions="Auto, Auto, Auto" >
+            <Border WidthRequest="180"
+                    HeightRequest="180"
+                    VerticalOptions="Start"
+                    Margin="0,0,0,12">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16" />
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Offset="0,4" Radius="4" Brush="{StaticResource Gray600}" />
+                </Border.Shadow>
+                <Grid ColumnDefinitions="*" RowDefinitions="*">
+                    <Image Source="{Binding DestinationImage}" Aspect="AspectFill"/>
+                </Grid>
+            </Border>
+            <VerticalStackLayout Grid.Row="1" VerticalOptions="Start" Padding="8" Margin="0,0,0,8">
+                <Label
+                    Text="{Binding DestinationName}"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    FontFamily="OxygenBold"
+                    Margin="0,0,0,8"/>
+                <Grid ColumnDefinitions="Auto, *" VerticalOptions="Center">
+                    <Image Source="{AppThemeBinding Dark=map_pin_white.png, Light=map_pin_black.png}" WidthRequest="16" HeightRequest="16" Margin="0,0,8,0" />
+                    <Label
+                        Grid.Column="1"
+                        Text="{Binding DestinationAddress}"
+                        VerticalTextAlignment="Center"
+                        TextColor="#8F9AAE"
+                        LineBreakMode="TailTruncation"
+                        FontSize="12" />
+                </Grid>
+            </VerticalStackLayout>
+            <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Grid.Row="2" >
+                <Grid ColumnDefinitions="Auto, *" VerticalOptions="Center" Padding="8">
+                    <Image Source="ticket.png" WidthRequest="16" HeightRequest="16" Margin="0,0,8,0" />
+                    <Label
+                        Grid.Column="1"
+                        Text="{Binding DestinationChargeAmount, Converter={StaticResource CultureConverter}}"
+                        VerticalTextAlignment="Center"
+                        FontSize="12" />
+                </Grid>
+                <Grid ColumnDefinitions="Auto, *" VerticalOptions="Center" Padding="8">
+                    <Image Source="star.png" WidthRequest="16" HeightRequest="16" Margin="0,0,8,0" />
+                    <Label
+                        Grid.Column="1"
+                        Text="{Binding DestinationRating}"
+                        VerticalTextAlignment="Center"
+                        LineBreakMode="TailTruncation"
+                        FontSize="12" />
+                </Grid>
+            </FlexLayout>
+        </Grid>
+    </Border>
+</ContentView>
+

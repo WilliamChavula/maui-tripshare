@@ -26,6 +26,16 @@ public class GetAccommodations : IGetAccommodations
                 AccommodationType = AccommodationType.Camping,
                 Image = "glamping.png"
             },
+            new Accommodation
+            {
+                AccommodationType = AccommodationType.Safari,
+                Image = "safari.png"
+            },
+            new Accommodation
+            {
+                AccommodationType = AccommodationType.RoadTrip,
+                Image = "road_trip.png"
+            }
         };
 
         return Task.FromResult(accommodations);

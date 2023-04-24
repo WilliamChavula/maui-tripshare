@@ -1,4 +1,6 @@
-﻿namespace tripshare.pagemodels;
+﻿// ReSharper disable AsyncVoidLambda
+
+namespace tripshare.pagemodels;
 
 public class HomePageModel : FreshBasePageModel
 {
@@ -7,19 +9,57 @@ public class HomePageModel : FreshBasePageModel
 
     public ObservableCollection<Trip> Trips { get; private set; }
     public ObservableCollection<Accommodation> Accommodations { get; private set; }
-    public Command NavigateToAddTripScreenCommand =>
-        // ReSharper disable once AsyncVoidLambda
-        new(async () =>
-        {
-            await CoreMethods.PushPageModel<AddTripPageModel>();
-        });
+
+    public ObservableCollection<Destination> Destinations { get; private set; }
+    public ObservableCollection<Promotion> Promotions { get; private set; }
+
+    public Command NavigateToAddTripScreenCommand => new(async () =>
+    {
+        await CoreMethods.PushPageModel<AddTripPageModel>();
+    });
+
+    public Command<Destination> GoToDetailPageCommand => new(async (destination) =>
+    {
+        await CoreMethods.PushPageModel<TripDetailPageModel>(destination);
+    });
 
     public HomePageModel(IReadData readData, IGetAccommodations getAccommodations)
     {
         _getAccommodations = getAccommodations;
         _readData = readData;
+    }
+
+    public override void Init(object initData)
+    {
         LoadTrips();
         LoadAccommodations();
+        LoadDestinations();
+        LoadPromotions();
+        base.Init(initData);
+    }
+
+    private void LoadPromotions()
+    {
+        Promotions = new ObservableCollection<Promotion>
+        {
+            new()
+            {
+                ImageUrl = "banner_1.png"
+            },
+            new()
+            {
+                ImageUrl = "banner_2.png"
+            },
+            new()
+            {
+                ImageUrl = "banner_3.png"
+            }
+        };
+    }
+
+    private async void LoadDestinations()
+    {
+        Destinations = await DestinationService.LoadDestinationsAsync();
     }
 
     private async void LoadAccommodations()
@@ -39,4 +79,3 @@ public class HomePageModel : FreshBasePageModel
             Trips.Add(trip);
     }
 }
-

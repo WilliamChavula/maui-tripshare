@@ -2,6 +2,7 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:tripshare"
+             xmlns:converters="clr-namespace:tripshare.converter"
              x:Class="tripshare.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -11,6 +12,9 @@
                 <ResourceDictionary Source="Resources/Styles/Strings.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+        <!-- CONVERTERS -->
+        <converters:CultureConverter x:Key="CultureConverter" />
+        
         <!--BASE LABEL STYLES-->
         <Style x:Key="BaseLabel" TargetType="Label">
             <Setter Property="FontFamily" Value="OxygenRegular" />
@@ -67,7 +71,7 @@
         <Style x:Key="BodyLabel" TargetType="Label" BasedOn="{StaticResource BaseLabel}" />
 
         <Style x:Key="CaptionLabel" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
-            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="TextColor" Value="#8F9AAE" />
         </Style>
 
         <Style x:Key="ContaninedButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">

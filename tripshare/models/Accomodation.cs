@@ -2,7 +2,7 @@ namespace tripshare.models;
 
 public enum AccommodationType
 {
-    Hotel, Apartment, Camping, Villa
+    Hotel, Apartment, Camping, Villa, Safari, RoadTrip
 }
 
 public class Accommodation

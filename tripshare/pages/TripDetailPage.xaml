@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="tripshare.pages.TripDetailPage"
+             xmlns:viewmodels="clr-namespace:tripshare.pagemodels"
+             xmlns:controls="clr-namespace:tripshare.controls"
+             xmlns:converters="clr-namespace:tripshare.converter"
+             xmlns:mui="clr-namespace:tripshare.helpers"
+             xmlns:model="clr-namespace:tripshare.models"
+             x:DataType="viewmodels:TripDetailPageModel"
+             ios:Page.UseSafeArea="False"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource PageBackgroundColorDark}, Light={StaticResource PageBackgroundColorLight}}"
+             x:Name="ViewPage">
+    <ContentPage.Resources>
+            <converters:StringToLowerCaseConverter x:Key="StringToLowerCase" />
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid HeightRequest="350" VerticalOptions="Start">
+                <Image Source="{Binding Destination.ImageUrl}" Aspect="AspectFill" Margin="0,0,0,8" />
+                <Border HeightRequest="36"
+                        WidthRequest="36"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start"
+                        Margin="16"
+                        StrokeShape="RoundRectangle 18"
+                        BackgroundColor="#E9ECF3"
+                        Opacity="0.6">
+                    <ImageButton Padding="4" Command="{Binding NavigateToHomePageCommand}">
+                        <ImageButton.Source>
+                            <FontImageSource
+                                Glyph="{OnPlatform Android={x:Static mui:MaterialDesignIcons.West},
+                                iOS={x:Static mui:MaterialDesignIcons.Arrow_back_ios}}"
+                                FontFamily="MUIconsOutlined"
+                                Size="24"
+                                Color="#000024" />
+                        </ImageButton.Source>
+                    </ImageButton>
+                </Border>
+            </Grid>
+        <VerticalStackLayout VerticalOptions="Start" HorizontalOptions="Start" Grid.Row="1" Padding="16" Margin="0,0,0,6" >
+            <Label Text="{Binding Destination.Name}" FontSize="20" />
+            <Grid ColumnDefinitions="Auto, Auto, 20, Auto" Margin="0,8,0,0">
+                <Image
+                    Source="{AppThemeBinding Dark=map_pin_white.png, Light=map_pin_black.png}"
+                    WidthRequest="14"
+                    HeightRequest="14"
+                    Margin="0,0,8,0" />
+                <Label
+                    Grid.Column="1"
+                    Text="{Binding Destination.Address}"
+                    TextColor="#8F9AAE"
+                    FontSize="14"
+                    FontFamily="OxygenLight"
+                    HorizontalTextAlignment="Start"/>
+                <HorizontalStackLayout HorizontalOptions="Start" Grid.Column="3" >
+                    <Image
+                        Source="star.png"
+                        WidthRequest="14"
+                        HeightRequest="14"
+                        Margin="0,0,4,0"/>
+                    <Label
+                        Grid.Column="1"
+                        Text="{Binding Destination.Rating}"
+                        TextColor="#8F9AAE"
+                        FontSize="14"
+                        FontFamily="OxygenLight"
+                        HorizontalTextAlignment="Start"/>
+                </HorizontalStackLayout>
+            </Grid>
+            <Label Margin="0,12,0,0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            Text="{Binding Destination.Cost, Converter={StaticResource CultureConverter}}"
+                            FontSize="20"
+                            FontFamily="OxygenBold"
+                            FontAttributes="Bold"
+                            TextColor="{AppThemeBinding Dark=#F8FAFF, Light=#4145C6}" />
+                        <Span Text="/night"
+                              FontSize="14"
+                              TextColor="#8F9AAE"
+                              FontFamily="OxygenLight"  />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </VerticalStackLayout>
+            <controls:DividerControl />
+            <VerticalStackLayout Margin="0,8,0,16" Padding="16,0">
+                <Label Text="Description"
+                       FontSize="18"
+                       FontFamily="OxygenBold"
+                       FontAttributes="Bold"
+                       Margin="0,0,0,8" />
+                <Label Text="{Binding Destination.Description}"
+                       FontFamily="OxygenRegular"
+                       TextColor="{AppThemeBinding Dark=#FBFAFF, Light=#000024}"
+                       LineHeight="1.5"
+                       FontSize="14"
+                       MaxLines="3" />
+
+            </VerticalStackLayout>
+            <controls:DividerControl />
+            <VerticalStackLayout Margin="0,16,0,16">
+                <Grid
+                    Margin="0,12,0,8" >
+                    <Label Text="Facilities"
+                           Padding="16,0"
+                           FontSize="18"
+                           HorizontalTextAlignment="Start"
+                           HorizontalOptions="StartAndExpand"
+                           FontFamily="OxygenBold"
+                           FontAttributes="Bold"
+                           VerticalTextAlignment="Center" />
+                    <Label Text="See All"
+                           Padding="16,0"
+                           HorizontalOptions="End"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="End"
+                           FontSize="14"
+                           FontFamily="OxygenBold"
+                           FontAttributes="Bold"/>
+                </Grid>
+                <VerticalStackLayout>
+                    <CollectionView
+                        ItemsSource="{Binding Destination.Facilities}"
+                        HeightRequest="36" Margin="0,16,0,4"
+                        HorizontalScrollBarVisibility="Never">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Facility">
+                                <Border Margin="24,0,24,0" BackgroundColor="Transparent">
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource
+                                            Glyph="{Binding Image}"
+                                            FontFamily="MUIconsOutlined"
+                                            Size="{OnPlatform Android=32, iOS=24}"
+                                            Color="{AppThemeBinding
+                                                Light={StaticResource IconColorLight},
+                                                Dark={StaticResource IconColorDark}}" />
+                                    </Image.Source>
+                                </Image>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+            <controls:DividerControl />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

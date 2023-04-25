@@ -21,8 +21,9 @@ public class FilterDestinationsTests
     public async void ShouldFilterDestinationsByAccommodationTypeAndReturnNonEmptyResult()
     {
         // Act
+        var type = AccommodationType.Hotel;
         var sut = new FilterDestinations(destinations.Object);
-        var filtered_results = await sut.ByAccommodationType("Hotel");
+        var filtered_results = await sut.ByAccommodationType(type.ToString());
 
         // Assert
         destinations.Verify(
@@ -34,6 +35,10 @@ public class FilterDestinationsTests
             .Count()
             .Should()
             .BeLessThanOrEqualTo(_destinationsFixture.Destinations.Count);
+        filtered_results.Should().AllSatisfy(
+                fr => fr.AccommodationTypes
+                .Should().Contain(type)
+            );
     }
 
     [Fact]

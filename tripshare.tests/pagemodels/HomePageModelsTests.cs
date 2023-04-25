@@ -1,8 +1,7 @@
-﻿using tripshare.tests.fixtures;
+﻿namespace tripshare.tests.pagemodels;
 
-namespace tripshare.tests;
-
-public class HomePageModelsTests : IClassFixture<TripsInitialStateFixture>, IClassFixture<DestinationsFixture>
+[Collection("Destinations Collection")]
+public class HomePageModelsTests : IClassFixture<TripsInitialStateFixture>
 {
     private readonly TripsInitialStateFixture _stateFixture;
     private readonly DestinationsFixture _destinationsFixture;

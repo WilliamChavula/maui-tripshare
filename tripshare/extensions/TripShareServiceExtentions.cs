@@ -11,6 +11,7 @@ public static class TripShareServiceExtentions
         builder.Services.AddSingleton<IReadData, ReadDataFromLocalFileSource>();
         builder.Services.AddSingleton<IGetAccommodations, GetAccommodations>();
         builder.Services.AddSingleton<IDestinationService, DestinationService>();
+        builder.Services.AddSingleton<IFilterDestinations, FilterDestinations>();
 
         return builder;
     }

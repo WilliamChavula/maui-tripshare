@@ -12,3 +12,4 @@ global using tripshare.models;
 global using tripshare.interfaces;
 global using tripshare.pagemodels;
 global using tripshare.services;
+global using tripshare.tests.fixtures;

@@ -45,3 +45,6 @@ public class DestinationsFixture
     }
 }
 
+[CollectionDefinition("Destinations Collection")]
+public class DestinationsCollection : ICollectionFixture<DestinationsFixture> { }
+

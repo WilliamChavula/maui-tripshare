@@ -28,6 +28,7 @@ public class FilterDestinationsTests
         destinations.Verify(
             instance => instance.LoadDestinationsAsync(),
             Times.Once());
+
         filtered_results.Should().NotBeNull();
         filtered_results
             .Count()

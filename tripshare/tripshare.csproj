@@ -48,8 +48,8 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Fody" Version="6.7.0">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="FreshMvvm.Maui" Version="0.0.4" />
@@ -72,6 +72,9 @@
 		<None Remove="controls\" />
 		<None Remove="triggers\" />
 		<None Remove="Resources\Fonts\MaterialIconsOutlined-Regular.otf" />
+		<None Remove="Resources\Raw\empty_state.json" />
+		<None Remove="Resources\Raw\emptystate.json" />
+		<None Remove="Resources\Images\empty_state.gif" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="interfaces\" />
@@ -84,7 +87,7 @@
 		<EmbeddedResource Include="assets\sample_users.json" />
 	</ItemGroup>
 	<ItemGroup>
-	  <MauiXaml Remove="Resources\Styles\MaterialDesignIcons.xaml" />
+		<MauiXaml Remove="Resources\Styles\MaterialDesignIcons.xaml" />
 	</ItemGroup>
 	<ItemGroup>
 		<MauiXaml Update="pages\HomePage.xaml">
@@ -96,16 +99,35 @@
 			</SubType>
 		</MauiXaml>
 		<MauiXaml Update="controls\VacationControl.xaml">
-		  <SubType></SubType>
+			<SubType>
+			</SubType>
 		</MauiXaml>
 		<MauiXaml Update="Resources\Styles\Strings.xaml">
-		  <SubType></SubType>
+			<SubType>
+			</SubType>
 		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
-	  <BundleResource Include="Resources\Styles\MaterialDesignIcons.xaml">
-	    <SubType>Designer</SubType>
-	  </BundleResource>
-	  <BundleResource Include="Resources\Fonts\MaterialIconsOutlined-Regular.otf" />
+		<BundleResource Include="Resources\Styles\MaterialDesignIcons.xaml">
+			<SubType>Designer</SubType>
+		</BundleResource>
+		<BundleResource Include="Resources\Fonts\MaterialIconsOutlined-Regular.otf" />
+		<BundleResource Include="Resources\Raw\emptystate.json" />
+		<BundleResource Include="Resources\Raw\emptystate.json">
+			<LogicalName>emptystate.json</LogicalName>
+		</BundleResource>
+		<BundleResource Include="Resources\Raw\emptystate.json">
+			<LogicalName>emptystate.json</LogicalName>
+		</BundleResource>
+		<BundleResource Include="Resources\Images\empty_state.gif" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
+		<PackageReference Include="Material.Components.Maui" Version="0.1.2-beta" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-maccatalyst'">
+		<PackageReference Include="Material.Components.Maui" Version="0.1.2-beta" />
+	</ItemGroup>
+	<ItemGroup>
+		<MauiAsset Remove="Resources\Raw\emptystate.json" />
 	</ItemGroup>
 </Project>

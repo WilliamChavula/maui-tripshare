@@ -45,6 +45,9 @@ public static class MauiProgram
         builder.Services.AddTransient<TripDetailPage>();
         builder.Services.AddTransient<TripDetailPageModel>();
 
+        builder.Services.AddTransient<FilteredDestinationPage>();
+        builder.Services.AddTransient<FilteredDestinationPageModel>();
+
         var mauiApp = builder.Build();
         mauiApp.UseFreshMvvm();
         return mauiApp;

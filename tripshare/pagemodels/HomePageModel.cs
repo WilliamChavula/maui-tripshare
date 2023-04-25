@@ -19,10 +19,17 @@ public class HomePageModel : FreshBasePageModel
         await CoreMethods.PushPageModel<AddTripPageModel>();
     });
 
-    public Command<Destination> GoToDetailPageCommand => new(async (destination) =>
-    {
-        await CoreMethods.PushPageModel<TripDetailPageModel>(destination);
-    });
+    public Command<Destination> GoToDetailPageCommand => new(
+        async (destination) =>
+        {
+            await CoreMethods.PushPageModel<TripDetailPageModel>(destination);
+        });
+
+    public Command<Accommodation> NavigateToFilteredDestinationPageCommand => new(
+        async (accommodation) =>
+        {
+            await CoreMethods.PushPageModel<FilteredDestinationPageModel>(accommodation.AccommodationType);
+        });
 
     public HomePageModel(IReadData readData, IGetAccommodations getAccommodations, IDestinationService destinationService)
     {

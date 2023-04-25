@@ -8,12 +8,16 @@
              x:DataType="pagemodels:FilteredDestinationPageModel"
              BackgroundColor="{AppThemeBinding Dark={StaticResource PageBackgroundColorDark}, Light={StaticResource PageBackgroundColorLight}}"
              NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
              Title="{Binding AccommodationType, StringFormat='{0} Results'}"
              x:Name="FilterPage">
     <Grid RowDefinitions="Auto, *, Auto">
         <Label
+            Padding="16"
             Text="{Binding AccommodationType, StringFormat='{0} Results'}"
-            FontSize="Medium"
+            FontSize="18"
+            FontFamily="OxygenRegular"
+            FontAttributes="Bold"
             HorizontalOptions="Center"
             HorizontalTextAlignment="Center" />
         <Grid Padding="16" Grid.Row="1">
@@ -102,7 +106,7 @@
                                         FontFamily="OxygenRegular" />
                                 </VerticalStackLayout>
                                 <Label
-                                    Padding="8,4"
+                                    Padding="8"
                                     Grid.Row="2"
                                     Text="SEE MORE"
                                     TextColor="{AppThemeBinding Dark=#F8FAFF, Light=#4145C6}"
@@ -124,23 +128,23 @@
             </CollectionView>
         </Grid>
         <Grid Grid.Row="2" HorizontalOptions="Center">
-            <Border HeightRequest="36"
-                        WidthRequest="36"
+            <Border HeightRequest="48"
+                        WidthRequest="48"
                         VerticalOptions="Start"
                         HorizontalOptions="Start"
                         Margin="8"
-                        StrokeShape="RoundRectangle 18"
+                        StrokeShape="RoundRectangle 24"
                         BackgroundColor="#E9ECF3"
                         Opacity="0.8">
                     <Border.Shadow>
                         <Shadow Offset="0,4" Radius="4" Brush="#636363" Opacity="0.2" />
                     </Border.Shadow>
-                    <ImageButton Padding="4" Command="{Binding PopFilterPageModal}">
+                    <ImageButton Padding="8" Command="{Binding PopFilterPageModal}">
                         <ImageButton.Source>
                             <FontImageSource
                                 Glyph="{x:Static mui:MaterialDesignIcons.Close}"
                                 FontFamily="MUIconsOutlined"
-                                Size="24"
+                                Size="32"
                                 Color="#000024" />
                         </ImageButton.Source>
                     </ImageButton>

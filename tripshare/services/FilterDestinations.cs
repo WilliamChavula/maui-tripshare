@@ -18,7 +18,7 @@ public class FilterDestinations : IFilterDestinations
         var isFound = Enum.TryParse(accommodationType, out AccommodationType result);
 
         if (!isFound)
-            return Array.Empty<Destination>();
+            return new List<Destination>();
 
         return allDestinations.
             Where(destination => destination.AccommodationTypes.

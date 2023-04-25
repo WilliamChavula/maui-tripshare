@@ -3,6 +3,7 @@ global using System.Collections.ObjectModel;
 global using System.Reflection;
 global using System.Threading.Tasks;
 
+global using Bogus;
 global using FluentAssertions;
 global using Xunit;
 global using Moq;

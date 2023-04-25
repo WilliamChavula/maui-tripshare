@@ -7,7 +7,6 @@
              x:Class="tripshare.pages.FilteredDestinationPage"
              x:DataType="pagemodels:FilteredDestinationPageModel"
              BackgroundColor="{AppThemeBinding Dark={StaticResource PageBackgroundColorDark}, Light={StaticResource PageBackgroundColorLight}}"
-             NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False"
              Title="{Binding AccommodationType, StringFormat='{0} Results'}"
              x:Name="FilterPage">
@@ -28,16 +27,30 @@
                                 <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
 
-                            <Image Source="empty_state.gif"
-                                   HeightRequest="200" 
+                            <Image HeightRequest="200" 
                                    HorizontalOptions="Center" 
-                                   IsAnimationPlaying="True" />
+                                   IsAnimationPlaying="True">
+                                <Image.Source>
+                                    <FontImageSource
+                                        Glyph="{x:Static mui:MaterialDesignIcons.Travel_explore}"
+                                        FontFamily="MUIconsOutlined"
+                                        Size="150"
+                                        Color="{AppThemeBinding
+                                                Light={StaticResource IconColorLight},
+                                                Dark={StaticResource IconColorDark}}" />
+
+                                </Image.Source>
+
+                            </Image>
                             <Label
                                 Margin="0,0,0,16"
                                 Text="No Destinations Available"
                                 FontAttributes="Bold"
                                 FontSize="18"
                                 HorizontalTextAlignment="Center"
+                                TextColor="{AppThemeBinding
+                                                Light={StaticResource IconColorLight},
+                                                Dark={StaticResource IconColorDark}}"
                                 Grid.Row="1"/>
 
                             <Label

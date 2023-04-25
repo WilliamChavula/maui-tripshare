@@ -27,6 +27,7 @@ public class DestinationService : IDestinationService
                     new(){ FacilityType = FacilityType.Bar, Image = MaterialDesignIcons.Local_bar},
                     new(){ FacilityType = FacilityType.Cinema, Image = MaterialDesignIcons.Live_tv}
                 },
+                AccommodationTypes = new List<AccommodationType> { AccommodationType.Hotel, AccommodationType.Safari, AccommodationType.Apartment}
             },
             new()
             {
@@ -45,6 +46,7 @@ public class DestinationService : IDestinationService
                     new(){ FacilityType = FacilityType.Bar, Image = MaterialDesignIcons.Local_bar},
                     new(){ FacilityType = FacilityType.Cinema, Image = MaterialDesignIcons.Live_tv}
                 },
+                AccommodationTypes = new List<AccommodationType> { AccommodationType.Hotel}
             },
             new()
             {
@@ -61,6 +63,7 @@ public class DestinationService : IDestinationService
                     new(){ FacilityType = FacilityType.Swimming, Image = MaterialDesignIcons.Pool},
                     new(){ FacilityType = FacilityType.Hiking, Image = MaterialDesignIcons.Hiking}
                 },
+                AccommodationTypes = new List<AccommodationType> { AccommodationType.Camping, AccommodationType.Safari, AccommodationType.RoadTrip }
             },
             new()
             {
@@ -77,6 +80,7 @@ public class DestinationService : IDestinationService
                     new(){ FacilityType = FacilityType.Swimming, Image = MaterialDesignIcons.Pool},
                     new(){ FacilityType = FacilityType.Hiking, Image = MaterialDesignIcons.Hiking}
                 },
+                AccommodationTypes = new List<AccommodationType> { AccommodationType.Camping, AccommodationType.Safari}
             },
             new()
             {
@@ -98,6 +102,7 @@ public class DestinationService : IDestinationService
                     new(){ FacilityType = FacilityType.Bar, Image = MaterialDesignIcons.Local_bar},
                     new(){ FacilityType = FacilityType.Cinema, Image = MaterialDesignIcons.Live_tv}
                 },
+                AccommodationTypes = new List<AccommodationType> { AccommodationType.Safari}
             }
         };
 

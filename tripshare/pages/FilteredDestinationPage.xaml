@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:tripshare.models"
+             xmlns:mui="clr-namespace:tripshare.helpers"
+             xmlns:pagemodels="clr-namespace:tripshare.pagemodels"
+             x:Class="tripshare.pages.FilteredDestinationPage"
+             x:DataType="pagemodels:FilteredDestinationPageModel"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource PageBackgroundColorDark}, Light={StaticResource PageBackgroundColorLight}}"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
+             Title="{Binding AccommodationType, StringFormat='{0} Results'}"
+             x:Name="FilterPage">
+    <Grid RowDefinitions="Auto, *, Auto">
+        <Label
+            Text="{Binding AccommodationType, StringFormat='{0} Results'}"
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center" />
+        <Grid Padding="16" Grid.Row="1">
+            <CollectionView ItemsSource="{Binding FilteredDestinations}" VerticalScrollBarVisibility="Never">
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Image Source="empty_state.gif"
+                                   HeightRequest="200" 
+                                   HorizontalOptions="Center" 
+                                   IsAnimationPlaying="True" />
+                            <Label
+                                Margin="0,0,0,16"
+                                Text="No Destinations Available"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                HorizontalTextAlignment="Center"
+                                Grid.Row="1"/>
+
+                            <Label
+                                Text="Oops! It seems there are no destinations which list as having the selected accommodation type"
+                                HorizontalTextAlignment="Center"
+                                TextColor="#8F9AAE"
+                                FontSize="14"
+                                LineHeight="1.3"
+                                Grid.Row="2"/>
+                        </Grid>
+                    </ContentView>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />
+
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type model:Destination}">
+                        <Border HeightRequest="250"
+                                BackgroundColor="{AppThemeBinding
+                                    Light={StaticResource InputBackgroundColorLight},
+                                    Dark={StaticResource InputBackgroundColorDark}}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="8" />
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Offset="0,2" Radius="2" Brush="#3C4043" Opacity="0.2" />
+                            </Border.Shadow>
+                            <Grid RowDefinitions="*,Auto,Auto">
+                                <Border VerticalOptions="Start" Margin="0,0,0,12">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="8" />
+                                    </Border.StrokeShape>
+                                    <Grid ColumnDefinitions="*" RowDefinitions="*">
+                                        <Image Source="{Binding ImageUrl}" Aspect="AspectFill"/>
+                                    </Grid>
+                                </Border>
+                                <VerticalStackLayout Grid.Row="1" Padding="8">
+                                    <Label
+                                        Text="{Binding Name}"
+                                        FontSize="16"
+                                        FontFamily="OxygenRegular" />
+                                    <Label
+                                        Margin="0,4"
+                                        Text="{Binding Description}"
+                                        LineBreakMode="TailTruncation"
+                                        TextColor="#8F9AAE"
+                                        FontSize="14"
+                                        FontFamily="OxygenRegular" />
+                                </VerticalStackLayout>
+                                <Label
+                                    Padding="8,4"
+                                    Grid.Row="2"
+                                    Text="SEE MORE"
+                                    TextColor="{AppThemeBinding Dark=#F8FAFF, Light=#4145C6}"
+                                    FontSize="14"
+                                    FontFamily="OxygenBold">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding Source={x:Reference FilterPage},
+                                            Path=BindingContext.GoToDetailPageCommand}"
+                                            CommandParameter="{Binding}" />
+                                    </Label.GestureRecognizers>
+
+                                </Label>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </Grid>
+        <Grid Grid.Row="2" HorizontalOptions="Center">
+            <Border HeightRequest="36"
+                        WidthRequest="36"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start"
+                        Margin="8"
+                        StrokeShape="RoundRectangle 18"
+                        BackgroundColor="#E9ECF3"
+                        Opacity="0.8">
+                    <Border.Shadow>
+                        <Shadow Offset="0,4" Radius="4" Brush="#636363" Opacity="0.2" />
+                    </Border.Shadow>
+                    <ImageButton Padding="4" Command="{Binding PopFilterPageModal}">
+                        <ImageButton.Source>
+                            <FontImageSource
+                                Glyph="{x:Static mui:MaterialDesignIcons.Close}"
+                                FontFamily="MUIconsOutlined"
+                                Size="24"
+                                Color="#000024" />
+                        </ImageButton.Source>
+                    </ImageButton>
+                </Border>
+
+        </Grid>
+    </Grid>
+</ContentPage>

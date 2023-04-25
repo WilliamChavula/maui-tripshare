@@ -73,8 +73,6 @@
 		<None Remove="triggers\" />
 		<None Remove="Resources\Fonts\MaterialIconsOutlined-Regular.otf" />
 		<None Remove="Resources\Raw\empty_state.json" />
-		<None Remove="Resources\Raw\emptystate.json" />
-		<None Remove="Resources\Images\empty_state.gif" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="interfaces\" />
@@ -112,22 +110,11 @@
 			<SubType>Designer</SubType>
 		</BundleResource>
 		<BundleResource Include="Resources\Fonts\MaterialIconsOutlined-Regular.otf" />
-		<BundleResource Include="Resources\Raw\emptystate.json" />
-		<BundleResource Include="Resources\Raw\emptystate.json">
-			<LogicalName>emptystate.json</LogicalName>
-		</BundleResource>
-		<BundleResource Include="Resources\Raw\emptystate.json">
-			<LogicalName>emptystate.json</LogicalName>
-		</BundleResource>
-		<BundleResource Include="Resources\Images\empty_state.gif" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
 		<PackageReference Include="Material.Components.Maui" Version="0.1.2-beta" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-maccatalyst'">
 		<PackageReference Include="Material.Components.Maui" Version="0.1.2-beta" />
-	</ItemGroup>
-	<ItemGroup>
-		<MauiAsset Remove="Resources\Raw\emptystate.json" />
 	</ItemGroup>
 </Project>

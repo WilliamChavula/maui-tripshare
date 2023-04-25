@@ -44,7 +44,6 @@ public class HomePageModel : FreshBasePageModel
         LoadAccommodations();
         LoadDestinations();
         LoadPromotions();
-        base.Init(initData);
     }
 
     private void LoadPromotions()

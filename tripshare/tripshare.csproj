@@ -74,12 +74,14 @@
 		<None Remove="triggers\" />
 		<None Remove="Resources\Fonts\MaterialIconsOutlined-Regular.otf" />
 		<None Remove="Resources\Raw\empty_state.json" />
+		<None Remove="behaviors\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="interfaces\" />
 		<Folder Include="assets\" />
 		<Folder Include="extensions\" />
 		<Folder Include="triggers\" />
+		<Folder Include="behaviors\" />
 	</ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Include="assets\trips.json" />

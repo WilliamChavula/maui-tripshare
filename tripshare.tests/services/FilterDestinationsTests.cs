@@ -18,7 +18,7 @@ public class FilterDestinationsTests
     }
 
     [Fact]
-    public async void ShouldFilterDestinationsByAccommodationTypeAndReturnNonEmptyResult()
+    public async void ShouldCallLoadDestinationsMethodWhenFilterByAccommodationIsInvoked()
     {
         // Act
         var type = AccommodationType.Hotel;
@@ -29,16 +29,24 @@ public class FilterDestinationsTests
         destinations.Verify(
             instance => instance.LoadDestinationsAsync(),
             Times.Once());
+    }
 
-        filtered_results.Should().NotBeNull();
+    [Fact]
+    public async void ShouldFilterDestinationsByAccommodationTypeAndReturnNonEmptyResult()
+    {
+        // Act
+        var type = AccommodationType.Hotel;
+        var sut = new FilterDestinations(destinations.Object);
+        var filtered_results = await sut.ByAccommodationType(type.ToString());
+
+        // Assert
         filtered_results
-            .Count()
             .Should()
-            .BeLessThanOrEqualTo(_destinationsFixture.Destinations.Count);
-        filtered_results.Should().AllSatisfy(
-                fr => fr.AccommodationTypes
-                .Should().Contain(type)
-            );
+            .NotBeNull()
+            .And
+            .HaveCountLessThanOrEqualTo(_destinationsFixture.Destinations.Count)
+            .And
+            .AllSatisfy(fr => fr.AccommodationTypes.Should().Contain(type));
     }
 
     [Fact]
@@ -53,9 +61,6 @@ public class FilterDestinationsTests
         var filtered_results = await sut.ByAccommodationType(randomWord);
 
         // Assert
-        destinations.Verify(
-            instance => instance.LoadDestinationsAsync(),
-            Times.Once());
         filtered_results.Should().BeEmpty();
     }
 }

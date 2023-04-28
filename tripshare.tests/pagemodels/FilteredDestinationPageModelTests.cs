@@ -46,10 +46,10 @@ public class FilteredDestinationPageModelTests
         filterDestinations.Verify(
             instance => instance.ByAccommodationType(testType),
             Times.Once());
+        sut.FilteredDestinations.Should().BeEmpty();
         sut.AccommodationType
             .Should()
-            .Be("No")
-            .And.BeEmpty();
+            .Be("No");
     }
 
     [Fact]

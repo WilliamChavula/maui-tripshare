@@ -56,6 +56,7 @@
 		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
 		<PackageReference Include="System.Text.Json" Version="7.0.1" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
+		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.61" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Remove="FreshMvvm.Maui" />
@@ -110,6 +111,7 @@
 			<SubType>Designer</SubType>
 		</BundleResource>
 		<BundleResource Include="Resources\Fonts\MaterialIconsOutlined-Regular.otf" />
+		<BundleResource Include="Resources\Raw\empty_state.json" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
 		<PackageReference Include="Material.Components.Maui" Version="0.1.2-beta" />

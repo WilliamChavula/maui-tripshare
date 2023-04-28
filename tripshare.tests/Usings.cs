@@ -7,6 +7,7 @@ global using Bogus;
 global using FluentAssertions;
 global using Xunit;
 global using Moq;
+global using SkiaSharp.Views.Maui.Controls.Hosting;
 
 global using tripshare.models;
 global using tripshare.interfaces;

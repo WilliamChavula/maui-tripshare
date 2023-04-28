@@ -3,7 +3,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:Class="tripshare.pages.HomePage"
+    xmlns:behavior="clr-namespace:tripshare.behaviors"
     xmlns:controls="clr-namespace:tripshare.controls"
     xmlns:effects="clr-namespace:tripshare.effects"
     xmlns:model="clr-namespace:tripshare.models"
@@ -90,14 +92,20 @@
                             <controls:VacationControl
                                 VacationImageAvatar="{Binding Image}"
                                 VacationTypeName="{Binding AccommodationType}">
-
-                                <controls:VacationControl.GestureRecognizers>
-                                    <TapGestureRecognizer
+                                <controls:VacationControl.Behaviors>
+                                    <toolkit:AnimationBehavior
                                         Command="{Binding Source={x:Reference Home},
                                         Path= BindingContext.NavigateToFilteredDestinationPageCommand}"
-                                        CommandParameter="{Binding}"/>
-                                </controls:VacationControl.GestureRecognizers>
-
+                                        CommandParameter="{Binding}">
+                                        <toolkit:AnimationBehavior.AnimationType>
+                                            <behavior:FadeAndScaleAnimationBehavior
+                                                     Easing="{x:Static Easing.SinInOut}"
+                                                     Length="150"
+                                                    Opacity="0.6"
+                                                     Scale="0.98" />
+                                        </toolkit:AnimationBehavior.AnimationType>
+                                    </toolkit:AnimationBehavior>
+                                </controls:VacationControl.Behaviors>
                             </controls:VacationControl>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

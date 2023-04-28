@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:behavior="clr-namespace:tripshare.behaviors"
              xmlns:model="clr-namespace:tripshare.models"
              xmlns:mui="clr-namespace:tripshare.helpers"
              xmlns:pagemodels="clr-namespace:tripshare.pagemodels"
@@ -25,46 +27,23 @@
             <CollectionView ItemsSource="{Binding FilteredDestinations}" VerticalScrollBarVisibility="Never">
                 <CollectionView.EmptyView>
                     <ContentView>
-                        <VerticalStackLayout>
-                            
+                        <Grid
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            RowDefinitions="*, Auto, Auto">
                             <skia:SKLottieView RepeatCount="-1"
-                               RepeatMode="Reverse"
-                               Source="empty_state.json"
-                               WidthRequest="300"
-                               HeightRequest="300"/>
-                        <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-                            <!--<Image HeightRequest="200" 
-                                   HorizontalOptions="Center" 
-                                   IsAnimationPlaying="True">
-                                <Image.Source>
-                                    <FontImageSource
-                                        Glyph="{x:Static mui:MaterialDesignIcons.Travel_explore}"
-                                        FontFamily="MUIconsOutlined"
-                                        Size="150"
-                                        Color="{AppThemeBinding
-                                                Light={StaticResource IconColorLight},
-                                                Dark={StaticResource IconColorDark}}" />
-
-                                </Image.Source>
-
-                            </Image>-->
-
+                                RepeatMode="Reverse"
+                                Source="empty_state.json"
+                                WidthRequest="300"
+                                HeightRequest="300"/>
                             <Label
                                 Margin="0,0,0,16"
                                 Text="No Destinations Available"
                                 FontAttributes="Bold"
                                 FontSize="18"
                                 HorizontalTextAlignment="Center"
-                                TextColor="{AppThemeBinding
-                                                Light={StaticResource IconColorLight},
-                                                Dark={StaticResource IconColorDark}}"
+                                TextColor="{AppThemeBinding Light={StaticResource IconColorLight}, Dark={StaticResource IconColorDark}}"
                                 Grid.Row="1"/>
-
                             <Label
                                 Text="Oops! It seems there are no destinations which list as having the selected accommodation type"
                                 HorizontalTextAlignment="Center"
@@ -73,15 +52,12 @@
                                 LineHeight="1.3"
                                 Grid.Row="2"/>
                         </Grid>
-                            
-
-                        </VerticalStackLayout>
                     </ContentView>
                 </CollectionView.EmptyView>
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />
-
                 </CollectionView.ItemsLayout>
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type model:Destination}">
                         <Border HeightRequest="250"
@@ -123,44 +99,58 @@
                                     TextColor="{AppThemeBinding Dark=#F8FAFF, Light=#4145C6}"
                                     FontSize="14"
                                     FontFamily="OxygenBold">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer
-                                            Command="{Binding Source={x:Reference FilterPage},
-                                            Path=BindingContext.GoToDetailPageCommand}"
-                                            CommandParameter="{Binding}" />
-                                    </Label.GestureRecognizers>
 
+                                    <Label.Behaviors>
+                                        <toolkit:AnimationBehavior
+                                            Command="{Binding Source={x:Reference FilterPage},
+                                                    Path=BindingContext.GoToDetailPageCommand}"
+                                            CommandParameter="{Binding}">
+                                            <toolkit:AnimationBehavior.AnimationType>
+                                                <behavior:FadeAndScaleAnimationBehavior
+                                                    Scale="1"
+                                                    Length="150"
+                                                    Opacity="0.6" />
+                                            </toolkit:AnimationBehavior.AnimationType>
+                                        </toolkit:AnimationBehavior>
+                                    </Label.Behaviors>
                                 </Label>
                             </Grid>
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-
             </CollectionView>
         </Grid>
         <Grid Grid.Row="2" HorizontalOptions="Center">
             <Border HeightRequest="48"
-                        WidthRequest="48"
-                        VerticalOptions="Start"
-                        HorizontalOptions="Start"
-                        Margin="8"
-                        StrokeShape="RoundRectangle 24"
-                        BackgroundColor="#E9ECF3"
-                        Opacity="0.8">
-                    <Border.Shadow>
-                        <Shadow Offset="0,4" Radius="4" Brush="#636363" Opacity="0.2" />
-                    </Border.Shadow>
-                    <ImageButton Padding="8" Command="{Binding PopFilterPageModal}">
-                        <ImageButton.Source>
-                            <FontImageSource
+                    WidthRequest="48"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    Margin="8"
+                    StrokeShape="RoundRectangle 24"
+                    BackgroundColor="#E9ECF3"
+                    Opacity="0.8">
+                <Border.Shadow>
+                    <Shadow Offset="0,4" Radius="4" Brush="#636363" Opacity="0.2" />
+                </Border.Shadow>
+                <ImageButton Padding="8">
+                    <ImageButton.Behaviors>
+                        <toolkit:AnimationBehavior Command="{Binding PopFilterPageModal}">
+                            <toolkit:AnimationBehavior.AnimationType>
+                                <behavior:FadeAndScaleAnimationBehavior
+                                    Scale="0.8"
+                                    Length="150" />
+                            </toolkit:AnimationBehavior.AnimationType>
+                        </toolkit:AnimationBehavior>
+                    </ImageButton.Behaviors>
+                    <ImageButton.Source>
+                        <FontImageSource
                                 Glyph="{x:Static mui:MaterialDesignIcons.Close}"
                                 FontFamily="MUIconsOutlined"
                                 Size="32"
                                 Color="#000024" />
-                        </ImageButton.Source>
-                    </ImageButton>
-                </Border>
-
+                    </ImageButton.Source>
+                </ImageButton>
+            </Border>
         </Grid>
     </Grid>
 </ContentPage>

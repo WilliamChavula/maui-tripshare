@@ -164,12 +164,20 @@
                                 DestinationIsFavorite="{Binding IsFavorite}"
                                 DestinationRating="{Binding Rating}"
                                 DestinationImage="{Binding ImageUrl}">
-                                <controls:DestinationCardControl.GestureRecognizers>
-                                    <TapGestureRecognizer
+                                <controls:DestinationCardControl.Behaviors>
+                                    <toolkit:AnimationBehavior
                                         Command="{Binding Source={x:Reference Home}, 
                                         Path=BindingContext.GoToDetailPageCommand}"
-                                        CommandParameter="{Binding}" />
-                                </controls:DestinationCardControl.GestureRecognizers>
+                                        CommandParameter="{Binding}">
+                                        <toolkit:AnimationBehavior.AnimationType>
+                                            <behavior:FadeAndScaleAnimationBehavior
+                                                     Easing="{x:Static Easing.SinInOut}"
+                                                     Length="150"
+                                                    Opacity="0.6"
+                                                     Scale="0.98" />
+                                        </toolkit:AnimationBehavior.AnimationType>
+                                    </toolkit:AnimationBehavior>
+                                </controls:DestinationCardControl.Behaviors>
                             </controls:DestinationCardControl>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>

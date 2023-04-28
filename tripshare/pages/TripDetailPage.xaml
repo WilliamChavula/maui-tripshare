@@ -57,6 +57,9 @@
                 </Border>
             </Grid>
         <VerticalStackLayout VerticalOptions="Start" HorizontalOptions="Start" Grid.Row="1" Padding="16" Margin="0,0,0,6" >
+            <VerticalStackLayout.Behaviors>
+                <behavior:FadeAnimationBehavior Page="{Binding Source={x:Reference ViewPage}}" />
+            </VerticalStackLayout.Behaviors>
             <Label Text="{Binding Destination.Name}" FontSize="20" />
             <Grid ColumnDefinitions="Auto, Auto, 20, Auto" Margin="0,8,0,0">
                 <Image
@@ -109,13 +112,21 @@
                        FontSize="18"
                        FontFamily="OxygenBold"
                        FontAttributes="Bold"
-                       Margin="0,0,0,8" />
+                       Margin="0,0,0,8">
+                    <Label.Behaviors>
+                        <behavior:FadeAnimationBehavior Page="{Binding Source={x:Reference ViewPage}}" />
+                    </Label.Behaviors>
+                </Label>
                 <Label Text="{Binding Destination.Description}"
                        FontFamily="OxygenRegular"
                        TextColor="{AppThemeBinding Dark=#FBFAFF, Light=#000024}"
                        LineHeight="1.5"
                        FontSize="14"
-                       MaxLines="3" />
+                       MaxLines="3">
+                    <Label.Behaviors>
+                        <behavior:FadeAnimationBehavior Page="{Binding Source={x:Reference ViewPage}}" />
+                    </Label.Behaviors>
+                </Label>
 
             </VerticalStackLayout>
             <controls:DividerControl />
@@ -144,6 +155,9 @@
                         ItemsSource="{Binding Destination.Facilities}"
                         HeightRequest="36" Margin="0,16,0,4"
                         HorizontalScrollBarVisibility="Never">
+                        <CollectionView.Behaviors>
+                            <behavior:FadeAnimationBehavior Page="{Binding Source={x:Reference ViewPage}}" />
+                        </CollectionView.Behaviors>
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout Orientation="Horizontal" />
                         </CollectionView.ItemsLayout>

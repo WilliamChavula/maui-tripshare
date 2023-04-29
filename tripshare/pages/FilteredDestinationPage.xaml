@@ -24,44 +24,42 @@
             HorizontalOptions="Center"
             HorizontalTextAlignment="Center" />
         <Grid Padding="16" Grid.Row="1">
+            <Grid
+                IsVisible="{Binding HasNoResults}"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                RowDefinitions="*, Auto, Auto">
+                <skia:SKLottieView RepeatCount="-1"
+                    RepeatMode="Reverse"
+                    Source="empty_state.json"
+                    WidthRequest="300"
+                    HeightRequest="300"/>
+                <Label
+                    Margin="0,0,0,16"
+                    Text="No Destinations Available"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    TextColor="{AppThemeBinding Light={StaticResource IconColorLight}, Dark={StaticResource IconColorDark}}"
+                    Grid.Row="1">
+                    <Label.Behaviors>
+                        <behavior:FadeAnimationBehavior Page="{Binding Source={x:Reference FilterPage}}" />
+                    </Label.Behaviors>
+                </Label>
+                <Label
+                    Text="Oops! It seems there are no destinations which list as having the selected accommodation type"
+                    HorizontalTextAlignment="Center"
+                    TextColor="#8F9AAE"
+                    FontSize="14"
+                    LineHeight="1.3"
+                    Grid.Row="2">
+                    <Label.Behaviors>
+                        <behavior:FadeAnimationBehavior Page="{Binding Source={x:Reference FilterPage}}" />
+                    </Label.Behaviors>
+                </Label>
+            </Grid>
             <CollectionView ItemsSource="{Binding FilteredDestinations}" VerticalScrollBarVisibility="Never">
-                <CollectionView.EmptyView>
-                    <ContentView>
-                        <Grid
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            RowDefinitions="*, Auto, Auto">
-                            <skia:SKLottieView RepeatCount="-1"
-                                RepeatMode="Reverse"
-                                Source="empty_state.json"
-                                WidthRequest="300"
-                                HeightRequest="300"/>
-                            <Label
-                                Margin="0,0,0,16"
-                                Text="No Destinations Available"
-                                FontAttributes="Bold"
-                                FontSize="18"
-                                HorizontalTextAlignment="Center"
-                                TextColor="{AppThemeBinding Light={StaticResource IconColorLight}, Dark={StaticResource IconColorDark}}"
-                                Grid.Row="1">
-                                <Label.Behaviors>
-                                    <behavior:FadeAnimationBehavior Page="{Binding Source={x:Reference FilterPage}}" />
-                                </Label.Behaviors>
-                            </Label>
-                            <Label
-                                Text="Oops! It seems there are no destinations which list as having the selected accommodation type"
-                                HorizontalTextAlignment="Center"
-                                TextColor="#8F9AAE"
-                                FontSize="14"
-                                LineHeight="1.3"
-                                Grid.Row="2">
-                                <Label.Behaviors>
-                                    <behavior:FadeAnimationBehavior Page="{Binding Source={x:Reference FilterPage}}" />
-                                </Label.Behaviors>
-                            </Label>
-                        </Grid>
-                    </ContentView>
-                </CollectionView.EmptyView>
+                
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />
                 </CollectionView.ItemsLayout>

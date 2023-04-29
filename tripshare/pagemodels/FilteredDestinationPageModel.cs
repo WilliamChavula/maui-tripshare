@@ -22,6 +22,7 @@ public class FilteredDestinationPageModel : FreshBasePageModel
 
     public ObservableCollection<Destination> FilteredDestinations { get; set; }
     public string AccommodationType { get; set; }
+    public bool HasNoResults { get; set; }
 
     public override async void Init(object initData)
     {
@@ -31,6 +32,7 @@ public class FilteredDestinationPageModel : FreshBasePageModel
         if (!filteredDestinations.Any())
         {
             FilteredDestinations = new ObservableCollection<Destination>();
+            HasNoResults = true;
             AccommodationType = "No";
         }
         else

@@ -146,42 +146,43 @@
             <Grid RowDefinitions="Auto, *" HorizontalOptions="Start" VerticalOptions="Start" Grid.Row="3"
                                  HeightRequest="350">
                 <Label Text="Popular Places" Style="{StaticResource HeadingLabel}" FontSize="18" />
-                <CarouselView ItemsSource="{Binding Destinations}" Grid.Row="1"
-                              PeekAreaInsets="{OnPlatform Android=75, iOS=100}"
+                <CollectionView ItemsSource="{Binding Destinations}" Grid.Row="1"
                               HorizontalOptions="Start"
                               HorizontalScrollBarVisibility="Never">
-                    <CarouselView.ItemsLayout>
+                    <CollectionView.ItemsLayout>
                         <LinearItemsLayout
-                            Orientation="Horizontal"
-                            SnapPointsAlignment="Start" />
-                    </CarouselView.ItemsLayout>
-                    <CarouselView.ItemTemplate>
+                            Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="{x:Type model:Destination}">
-                            <controls:DestinationCardControl
-                                DestinationName="{Binding Name}"
-                                DestinationAddress="{Binding Address}"
-                                DestinationChargeAmount="{Binding Cost}"
-                                DestinationIsFavorite="{Binding IsFavorite}"
-                                DestinationRating="{Binding Rating}"
-                                DestinationImage="{Binding ImageUrl}">
-                                <controls:DestinationCardControl.Behaviors>
-                                    <toolkit:AnimationBehavior
-                                        Command="{Binding Source={x:Reference Home}, 
-                                        Path=BindingContext.GoToDetailPageCommand}"
-                                        CommandParameter="{Binding}">
-                                        <toolkit:AnimationBehavior.AnimationType>
-                                            <behavior:FadeAndScaleAnimationBehavior
-                                                     Easing="{x:Static Easing.SinInOut}"
-                                                     Length="150"
-                                                    Opacity="0.6"
-                                                     Scale="0.98" />
-                                        </toolkit:AnimationBehavior.AnimationType>
-                                    </toolkit:AnimationBehavior>
-                                </controls:DestinationCardControl.Behaviors>
-                            </controls:DestinationCardControl>
+                            <Grid Margin="0,0,20,0">
+                                <controls:DestinationCardControl
+                                    DestinationName="{Binding Name}"
+                                    DestinationAddress="{Binding Address}"
+                                    DestinationChargeAmount="{Binding Cost}"
+                                    DestinationIsFavorite="{Binding IsFavorite}"
+                                    DestinationRating="{Binding Rating}"
+                                    DestinationImage="{Binding ImageUrl}">
+                                    <controls:DestinationCardControl.Behaviors>
+                                        <toolkit:AnimationBehavior
+                                            Command="{Binding Source={x:Reference Home}, 
+                                            Path=BindingContext.GoToDetailPageCommand}"
+                                            CommandParameter="{Binding}">
+                                            <toolkit:AnimationBehavior.AnimationType>
+                                                <behavior:FadeAndScaleAnimationBehavior
+                                                         Easing="{x:Static Easing.SinInOut}"
+                                                         Length="150"
+                                                        Opacity="0.6"
+                                                         Scale="0.98" />
+                                            </toolkit:AnimationBehavior.AnimationType>
+                                        </toolkit:AnimationBehavior>
+                                    </controls:DestinationCardControl.Behaviors>
+                                </controls:DestinationCardControl>
+                            </Grid>
                         </DataTemplate>
-                    </CarouselView.ItemTemplate>
-                </CarouselView>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                
             </Grid>
         </Grid>
     </ScrollView>

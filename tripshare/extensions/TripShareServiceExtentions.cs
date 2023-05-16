@@ -12,6 +12,7 @@ public static class TripShareServiceExtentions
         builder.Services.AddSingleton<IGetAccommodations, GetAccommodations>();
         builder.Services.AddSingleton<IDestinationService, DestinationService>();
         builder.Services.AddSingleton<IFilterDestinations, FilterDestinations>();
+        builder.Services.AddSingleton<INotificationService, NotificationService>();
 
         return builder;
     }

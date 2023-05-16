@@ -16,7 +16,10 @@ public class HomePageModel : FreshBasePageModel
 
     public Command NavigateToAddTripScreenCommand => new(async () =>
     {
-        await CoreMethods.PushPageModel<AddTripPageModel>();
+        await CoreMethods.PushPageModel<NotificationPageModel>(
+            new object(),
+            modal: true
+            );
     });
 
     public Command<Destination> GoToDetailPageCommand => new(

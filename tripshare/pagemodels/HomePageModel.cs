@@ -38,11 +38,11 @@ public class HomePageModel : FreshBasePageModel
         _destinationService = destinationService;
     }
 
-    public override void Init(object initData)
+    public override async void Init(object initData)
     {
-        LoadTrips();
-        LoadAccommodations();
-        LoadDestinations();
+        await LoadTrips();
+        await LoadAccommodations();
+        await LoadDestinations();
         LoadPromotions();
     }
 
@@ -65,18 +65,18 @@ public class HomePageModel : FreshBasePageModel
         };
     }
 
-    private async void LoadDestinations()
+    private async Task LoadDestinations()
     {
         var destinations = await _destinationService.LoadDestinationsAsync();
         Destinations = new ObservableCollection<Destination>(destinations);
     }
 
-    private async void LoadAccommodations()
+    private async Task LoadAccommodations()
     {
         Accommodations = await _getAccommodations.LoadAccommodationsAsync();
     }
 
-    private async void LoadTrips()
+    private async Task LoadTrips()
     {
         const string source = "tripshare.assets.trips.json";
         var trips = await _readData.LoadDataAsync(source);

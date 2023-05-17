@@ -10,7 +10,9 @@ Animation used in Empty Destination Filter page was obtained from [LottieFiles](
 ![Detail Screen](samples/detail_page_dark.png)
 ![Destination Filter Screen](samples/filter_dark.png)
 ![Empty Filter Screen](samples/empty_dark.png)
-![Notifications Screen](samples/notifications_dark.png)
+
+
+<img src="samples/notifications_dark.png" alt="Alt text" title="Optional title" height="60%">
 
 ## Light Mode Screenshots
 ![Home Screen](samples/home_page_light.png)

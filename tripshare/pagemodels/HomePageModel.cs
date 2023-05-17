@@ -1,5 +1,7 @@
 ﻿// ReSharper disable AsyncVoidLambda
 
+using Bogus;
+
 namespace tripshare.pagemodels;
 
 public class HomePageModel : FreshBasePageModel
@@ -8,6 +10,14 @@ public class HomePageModel : FreshBasePageModel
     private readonly IGetAccommodations _getAccommodations;
     private readonly IDestinationService _destinationService;
 
+    public HomePageModel(IReadData readData, IGetAccommodations getAccommodations, IDestinationService destinationService)
+    {
+        _getAccommodations = getAccommodations;
+        _readData = readData;
+        _destinationService = destinationService;
+    }
+
+    public string UserName => new Faker().Name.FirstName();
     public ObservableCollection<Trip> Trips { get; private set; }
     public ObservableCollection<Accommodation> Accommodations { get; private set; }
 
@@ -34,12 +44,6 @@ public class HomePageModel : FreshBasePageModel
             await CoreMethods.PushPageModel<FilteredDestinationPageModel>(accommodation.AccommodationType);
         });
 
-    public HomePageModel(IReadData readData, IGetAccommodations getAccommodations, IDestinationService destinationService)
-    {
-        _getAccommodations = getAccommodations;
-        _readData = readData;
-        _destinationService = destinationService;
-    }
 
     public override async void Init(object initData)
     {

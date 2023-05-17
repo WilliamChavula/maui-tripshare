@@ -21,7 +21,7 @@
             <!--GREETING AND HEADER-->
             <VerticalStackLayout Grid.Row="0">
                 <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Label Style="{StaticResource HeadingLabel2}" Text="{StaticResource Greeting}"
+                    <Label Style="{StaticResource HeadingLabel2}" Text="{Binding UserName, StringFormat='Good Morning, {0}'}"
                            HorizontalOptions="StartAndExpand" />
                     <Image Source="{AppThemeBinding Light=bell_black.png, Dark=bell_white.png}" WidthRequest="24"
                            HeightRequest="24">

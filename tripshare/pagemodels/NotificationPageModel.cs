@@ -14,19 +14,12 @@ public class NotificationPageModel : FreshBasePageModel
 
     public Command<Notification> MarkAsReadCommand => new(notification =>
     {
-        var oldNotifications = new ObservableCollection<Notification>(Notifications);
+        var idx = Notifications.IndexOf(notification);
+        Notifications.Remove(notification);
 
-        Notifications.Clear();
+        notification.IsRead = true;
 
-        foreach (var item in oldNotifications)
-        {
-            if (item.NotificationId == notification.NotificationId)
-            {
-                item.IsRead = true;
-            }
-
-            Notifications.Add(item);
-        }
+        Notifications.Insert(idx, notification);
     });
 
     public Command CloseModalAsyncCommand => new(() =>

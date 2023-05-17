@@ -22,7 +22,6 @@ public class NotificationService : INotificationService
         var titleCount = new Random().Next(3, 11);
         var sentenceCount = new Random().Next(1, 4);
         var notifications = new Faker<Notification>()
-            .StrictMode(true)
             .RuleFor(obj => obj.Title, f => f.Random.Words(titleCount))
             .RuleFor(obj => obj.Description, f => f.Lorem.Sentences(sentenceCount))
             .RuleFor(obj => obj.ImageUrl, f => f.Person.Avatar)

@@ -1,12 +1,150 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:tripshare.controls"
+             xmlns:converter="clr-namespace:tripshare.converter"
+             xmlns:model="clr-namespace:tripshare.models"
+             xmlns:viewModel="clr-namespace:tripshare.pagemodels"
+             x:DataType="viewModel:NotificationPageModel"
              x:Class="tripshare.pages.NotificationPage"
-             Title="Notifications">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             BackgroundColor="{AppThemeBinding Dark={StaticResource PageBackgroundColorDark}, Light={StaticResource PageBackgroundColorLight}}"
+             Title="Notifications"
+             NavigationPage.HasNavigationBar="False"
+             x:Name="NotificationsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:DateToPrettyDateConverter x:Key="DatePrettyConverter" />
+
+            <Style TargetType="Label" x:Key="baseTemplateHeadingStyle">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="{AppThemeBinding
+                    Light={StaticResource BodyFontColorLight},
+                    Dark={StaticResource BodyFontColorDark}}" />
+                <Setter Property="FontFamily" Value="OxygenRegular" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+            </Style>
+            <Style TargetType="Label" x:Key="baseTemplateBodyStyle">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="#8F9AAE" />
+                <Setter Property="FontFamily" Value="OxygenLight" />
+            </Style>
+            <DataTemplate x:Key="readTemplate" x:DataType="{x:Type model:Notification}">
+                    <Grid
+                        ColumnDefinitions="Auto, *, Auto"
+                        RowDefinitions="Auto, Auto"
+                        Margin="0,8">
+                        <Border Grid.RowSpan="2" StrokeShape="RoundRectangle 8" VerticalOptions="Center">
+                            <Image
+                                Source="{Binding ImageUrl}"
+                                WidthRequest="36"
+                                HeightRequest="36">
+                                <Image.Clip>
+                                    <EllipseGeometry RadiusX="18" RadiusY="18" Center="18,18" />
+                                </Image.Clip>
+                            </Image>
+                        </Border>
+                        <VerticalStackLayout
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Grid.Row="0"
+                            Padding="8,0"
+                            Spacing="10">
+                        <Label
+                            Style="{StaticResource baseTemplateHeadingStyle}"
+                            Text="{Binding Title}" />
+                        <Label
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Grid.Row="1"
+                            Style="{StaticResource baseTemplateBodyStyle}"
+                            Text="{Binding NotificationTime, Converter={StaticResource DatePrettyConverter}}" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+            </DataTemplate>
+
+            <DataTemplate x:Key="unReadTemplate" x:DataType="{x:Type model:Notification}">
+                    <Grid
+                        ColumnDefinitions="Auto, *, Auto"
+                        RowDefinitions="Auto, Auto"
+                        Margin="0,8">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:NotificationPageModel}}, Path=MarkAsReadCommand}"
+                                CommandParameter="{Binding}" />
+                        </Grid.GestureRecognizers>
+                        <Border Grid.RowSpan="2" StrokeShape="RoundRectangle 8" VerticalOptions="Center">
+                            <Image
+                                Source="{Binding ImageUrl}"
+                                WidthRequest="36"
+                                HeightRequest="36">
+                                <Image.Clip>
+                                    <EllipseGeometry RadiusX="18" RadiusY="18" Center="18,18" />
+                                </Image.Clip>
+                            </Image>
+                        </Border>
+                        <Border
+                            Margin="8,0"
+                            BackgroundColor="#E16657"
+                            Grid.Column="2"
+                            StrokeShape="RoundRectangle 5"
+                            HeightRequest="10"
+                            WidthRequest="10"
+                            VerticalOptions="Start" />
+                        <VerticalStackLayout
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Padding="8,0"
+                            Spacing="10">
+                        <Label
+                            Style="{StaticResource baseTemplateHeadingStyle}"
+                            Text="{Binding Title}" />
+                        <Label
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Style="{StaticResource baseTemplateBodyStyle}"
+                            Text="{Binding NotificationTime, Converter={StaticResource DatePrettyConverter}}" />
+                        </VerticalStackLayout>
+                    </Grid>
+            </DataTemplate>
+
+            <control:NotificationsDataTemplateSelector
+                x:Key="notificationTemplateSelector"
+                ReadNotification="{StaticResource readTemplate}"
+                UnReadNotification="{StaticResource unReadTemplate}" />
+
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Margin="0,16">
+            <Grid>
+                <Label 
+                    Text="Notifications" 
+                    Margin="16,0,0,24" 
+                    Style="{StaticResource HeadingLabel}" HorizontalOptions="Start" />
+                <Label
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    Padding="8"
+                    Text="Close"
+                    TextColor="{AppThemeBinding
+                        Light={StaticResource BodyFontColorLight},
+                        Dark={StaticResource BodyFontColorDark}}"
+                    FontSize="14"
+                    FontFamily="OxygenBold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CloseModalAsyncCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+            <CollectionView
+                ItemsSource="{Binding Notifications}"
+                ItemTemplate="{StaticResource notificationTemplateSelector}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

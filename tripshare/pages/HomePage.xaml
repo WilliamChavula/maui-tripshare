@@ -36,52 +36,52 @@
                 </Grid>
 
                 <!--SEARCH BOX-->
-                <Border Margin="0,12"
-                        BackgroundColor="{AppThemeBinding
-                            Light={StaticResource InputBackgroundColorLight},
-                            Dark={StaticResource InputBackgroundColorDark}}"
-                        Padding="8"
-                        Stroke="{AppThemeBinding
-                            Light={StaticResource InputBorderColorLight},
-                            Dark={StaticResource DividerColorDark}}">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="16" />
-                    </Border.StrokeShape>
-                    <Grid VerticalOptions="Center" ColumnDefinitions="Auto, *">
-                        <Image Margin="8">
-                            <Image.Source>
-                                <FontImageSource
-                                    Glyph="{StaticResource SearchIcon}"
-                                    FontFamily="FaSolid" Size="18"
-                                    Color="{AppThemeBinding
-                                        Light={StaticResource IconColorLight},
-                                        Dark={StaticResource IconColorDark}}" />
-                            </Image.Source>
-                        </Image>
-                        <Entry
-                            Grid.Column="1"
-                            BackgroundColor="Transparent"
-                            IsSpellCheckEnabled="false"
-                            IsTextPredictionEnabled="false"
-                            PlaceholderColor="{StaticResource Gray400}"
-                            Placeholder="Search destination..."
-                            Keyboard="Text"
-                            ReturnType="Search"
-                            ClearButtonVisibility="WhileEditing"
-                            TextColor="{StaticResource Gray900}">
-                            <Entry.Effects>
-                                <effects:EntryBackgroundTintEffect />
-                            </Entry.Effects>
-                        </Entry>
-                    </Grid>
-                </Border>
+                <!-- <Border Margin="0,12" -->
+                <!--         BackgroundColor="{AppThemeBinding -->
+                <!--             Light={StaticResource InputBackgroundColorLight}, -->
+                <!--             Dark={StaticResource InputBackgroundColorDark}}" -->
+                <!--         Padding="8" -->
+                <!--         Stroke="{AppThemeBinding -->
+                <!--             Light={StaticResource InputBorderColorLight}, -->
+                <!--             Dark={StaticResource DividerColorDark}}"> -->
+                <!--     <Border.StrokeShape> -->
+                <!--         <RoundRectangle CornerRadius="16" /> -->
+                <!--     </Border.StrokeShape> -->
+                <!--     <Grid VerticalOptions="Center" ColumnDefinitions="Auto, *"> -->
+                <!--         <Image Margin="8"> -->
+                <!--             <Image.Source> -->
+                <!--                 <FontImageSource -->
+                <!--                     Glyph="{StaticResource SearchIcon}" -->
+                <!--                     FontFamily="FaSolid" Size="18" -->
+                <!--                     Color="{AppThemeBinding -->
+                <!--                         Light={StaticResource IconColorLight}, -->
+                <!--                         Dark={StaticResource IconColorDark}}" /> -->
+                <!--             </Image.Source> -->
+                <!--         </Image> -->
+                <!--         <Entry -->
+                <!--             Grid.Column="1" -->
+                <!--             BackgroundColor="Transparent" -->
+                <!--             IsSpellCheckEnabled="false" -->
+                <!--             IsTextPredictionEnabled="false" -->
+                <!--             PlaceholderColor="{StaticResource Gray400}" -->
+                <!--             Placeholder="Search destination..." -->
+                <!--             Keyboard="Text" -->
+                <!--             ReturnType="Search" -->
+                <!--             ClearButtonVisibility="WhileEditing" -->
+                <!--             TextColor="{StaticResource Gray900}"> -->
+                <!--             <Entry.Effects> -->
+                <!--                 <effects:EntryBackgroundTintEffect /> -->
+                <!--             </Entry.Effects> -->
+                <!--         </Entry> -->
+                <!--     </Grid> -->
+                <!-- </Border> -->
             </VerticalStackLayout>
 
             <!--ACCOMMODATION TYPES-->
-            <Grid Grid.Row="1" HeightRequest="100">
+            <Grid Grid.Row="1" HeightRequest="100" Margin="0,16">
                 <CollectionView
                     ItemsSource="{Binding Accommodations}"
-                    Margin="0, 16,0,0"
+                    Margin="0,16,0,0"
                     VerticalOptions="FillAndExpand"
                     HorizontalScrollBarVisibility="Never">
                     <CollectionView.ItemsLayout>
@@ -143,9 +143,14 @@
             </Grid>
 
             <!-- POPULAR PLACES -->
-            <Grid RowDefinitions="Auto, *" HorizontalOptions="Start" VerticalOptions="Start" Grid.Row="3"
-                                 HeightRequest="350">
-                <Label Text="Popular Places" Style="{StaticResource HeadingLabel}" FontSize="18" />
+            <Grid
+                RowDefinitions="Auto, *"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                Grid.Row="3"
+                HeightRequest="350">
+                <Label Text="Popular Places" Style="{StaticResource HeadingLabel}" FontSize="18" Margin="0,16" />
+                
                 <CollectionView ItemsSource="{Binding Destinations}" Grid.Row="1"
                               HorizontalOptions="Start"
                               HorizontalScrollBarVisibility="Never">

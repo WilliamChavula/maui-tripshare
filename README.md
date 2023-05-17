@@ -18,8 +18,3 @@ Animation used in Empty Destination Filter page was obtained from [LottieFiles](
 ![Destination Filter Screen](samples/filter_light.png)
 ![Empty Filter Screen](samples/empty_light.png)
 ![Notifications Screen](samples/notifications_light.png)
-<<<<<<< HEAD
-
-![Notifications Screen](samples/notifications_dark.png)
-=======
->>>>>>> 49ecfcb23f37c8d359b64ac8ab23e5104088beef

@@ -12,7 +12,7 @@ public class NotificationPageModelTests : IClassFixture<NotificationsFixture>
     }
     
     [Fact]
-    public void ShouldCallFilterByAccommodationTypeOnInitialization()
+    public void ShouldCallGenerateNotificationsOnInitialization()
     {
         // Arrange
         _service.Setup(instance => instance.GenerateNotifications().Result)

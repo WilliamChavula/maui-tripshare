@@ -34,9 +34,7 @@
 		<ProjectReference Include="..\tripshare\tripshare.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="pagemodels\" />
 	  <Folder Include="services\" />
-	  <Folder Include="fixtures\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <EmbeddedResource Include="fixtures\trips.json" />
